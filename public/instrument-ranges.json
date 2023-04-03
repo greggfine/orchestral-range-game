@@ -1,0 +1,4 @@
+[
+  { "name": "oboe", "range": "c3-c5", "id": 0 },
+  { "name": "flute", "range": "d3-d6", "id": 1 }
+]
