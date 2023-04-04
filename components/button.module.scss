@@ -1,0 +1,8 @@
+.button {
+  padding: 0.5em 1em;
+
+  &:hover {
+    color: purple;
+    cursor: pointer;
+  }
+}

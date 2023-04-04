@@ -1,4 +1,10 @@
 [
   { "name": "oboe", "range": "c3-c5", "id": 0 },
-  { "name": "flute", "range": "d3-d6", "id": 1 }
+  { "name": "flute", "range": "d3-d6", "id": 1 },
+  { "name": "cello", "range": "c4-c5", "id": 2 },
+  { "name": "violin", "range": "b1-b6", "id": 3 },
+  { "name": "viola", "range": "e3-e5", "id": 4 },
+  { "name": "trombone", "range": "f3-f6", "id": 5 },
+  { "name": "trumpet", "range": "g3-g5", "id": 6 },
+  { "name": "piccolo", "range": "a3-a6", "id": 7 }
 ]
