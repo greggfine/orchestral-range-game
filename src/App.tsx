@@ -10,6 +10,9 @@ import RightWrongDisplay from "../components/RightWrongDisplay";
 import RoundDisplay from "../components/RoundDisplay";
 import ScoreDisplay from "../components/ScoreDisplay";
 
+const rightAnswer = new Audio("src/assets/audio/correctAnswer.wav");
+const wrongAnswer = new Audio("src/assets/audio/wrongAnswer.wav");
+
 function App() {
   const maxRounds = 3;
   const roundGap = 1000;
@@ -40,8 +43,11 @@ function App() {
           ...gameState,
           score: gameState["score"] + 1,
         }),
-        setIsCorrectAnswer(true))
-      : (setGameState({ ...gameState }), setIsCorrectAnswer(false));
+        setIsCorrectAnswer(true),
+        rightAnswer.play())
+      : (setGameState({ ...gameState }),
+        setIsCorrectAnswer(false),
+        wrongAnswer.play());
 
     setRightWrongDisplayIsVisible(true);
     if (gameState.round < maxRounds) {
