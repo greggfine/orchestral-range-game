@@ -21,15 +21,22 @@ function App() {
     });
 
   let [gameState, setGameState] = useState({ score: 0, round: 1 });
+  let [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
+  let [rightWrongDisplayIsVisible, setRightWrongDisplayIsVisible] =
+    useState(false);
 
   const handleClick = (buttonChoiceName: string) => {
     buttonChoiceName === correctAnswerInstrument.name
-      ? setGameState({
+      ? (setGameState({
           ...gameState,
           score: gameState["score"] + 1,
           round: gameState["round"] + 1,
-        })
-      : setGameState({ ...gameState, round: gameState["round"] + 1 });
+        }),
+        setIsCorrectAnswer(true))
+      : (setGameState({ ...gameState, round: gameState["round"] + 1 }),
+        setIsCorrectAnswer(false));
+
+    setRightWrongDisplayIsVisible(true);
   };
   const randomizeAnswers = (
     instruments: Instrument[],
@@ -70,7 +77,9 @@ function App() {
       <h1>Orchestral Range Game</h1>
       <ScoreDisplay score={gameState.score} />
       <RoundDisplay round={gameState.round} maxRounds={maxRounds} />
-      <RightWrongDisplay />
+      {rightWrongDisplayIsVisible && (
+        <RightWrongDisplay isCorrectAnswer={isCorrectAnswer} />
+      )}
       <RangeDisplay correctAnswerInstrument={correctAnswerInstrument} />
       <AnswerChoices instruments={instruments} handleClick={handleClick} />
     </div>
