@@ -4,6 +4,7 @@ export type Instrument = {
   name: string;
   range: string;
   id: number;
+  image?: string;
   handleClick?: handleClickFn;
 };
 
