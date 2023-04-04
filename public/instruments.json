@@ -14,5 +14,5 @@
   { "name": "bassoon", "range": "e3-e5", "id": 12 },
   { "name": "bass", "range": "f3-f6", "id": 13 },
   { "name": "clarinet", "range": "g3-g5", "id": 14 },
-  { "name": "triangle", "range": "a3-a6", "id": 15 }
+  { "name": "triang", "range": "a3-a6", "id": 15 }
 ]

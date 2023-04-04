@@ -1,4 +1,4 @@
-import { answerChoicesProps, instrumentRange } from "../types/types";
+import { answerChoicesProps } from "../types/types";
 import styles from "./answerchoices.module.scss";
 import Button from "../components/Button";
 

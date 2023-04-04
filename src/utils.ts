@@ -1,15 +1,17 @@
-import { instrumentRange } from "../types/types";
+import { Instrument } from "../types/types";
 
-export const fisherYatesShuffle = (
-  randomizedInstruments: instrumentRange[]
-) => {
+export const fisherYatesShuffle = (randomizedInstrument: Instrument[]) => {
   // Shuffle the array using Fisher-Yates algorithm
-  for (let i = randomizedInstruments.length - 1; i > 0; i--) {
+  for (let i = randomizedInstrument.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [randomizedInstruments[i], randomizedInstruments[j]] = [
-      randomizedInstruments[j],
-      randomizedInstruments[i],
+    [randomizedInstrument[i], randomizedInstrument[j]] = [
+      randomizedInstrument[j],
+      randomizedInstrument[i],
     ];
   }
-  return randomizedInstruments;
+  return randomizedInstrument;
+};
+
+export const getRandomIndex = (array: any[]): number => {
+  return Math.floor(Math.random() * array.length);
 };

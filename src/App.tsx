@@ -1,81 +1,78 @@
 import { useState, useEffect } from "react";
 import styles from "./app.module.scss";
-import { instrumentRange } from "../types/types";
+
+import { Instrument } from "../types/types";
+import { fisherYatesShuffle, getRandomIndex } from "./utils";
+
 import AnswerChoices from "../components/AnswerChoices";
-import RightWrongDisplay from "../components/RightWrongDisplay";
-import ScoreDisplay from "../components/ScoreDisplay";
-import RoundDisplay from "../components/RoundDisplay";
 import RangeDisplay from "../components/RangeDisplay";
-import { fisherYatesShuffle } from "./utils";
+import RightWrongDisplay from "../components/RightWrongDisplay";
+import RoundDisplay from "../components/RoundDisplay";
+import ScoreDisplay from "../components/ScoreDisplay";
 
 function App() {
   const maxRounds = 3;
-  const [instrumentRanges, setInstrumentRanges] = useState<instrumentRange[]>(
-    []
-  );
-  const [chosenInstrument, setChosenInstrument] = useState<instrumentRange>({
-    name: "",
-    range: "",
-    id: 0,
-  });
+  const [instruments, setInstruments] = useState<Instrument[]>([]);
+  const [correctAnswerInstrument, setCorrectAnswerInstrument] =
+    useState<Instrument>({
+      name: "",
+      range: "",
+      id: 0,
+    });
 
-  let [score, setScore] = useState(0);
-  let [round, setRound] = useState(1);
+  let [gameState, setGameState] = useState({ score: 0, round: 1 });
 
-  const handleClick = (name: string) => {
-    console.log(name);
-
-    if (name === chosenInstrument.name) {
-      setScore((score += 1));
-    }
-    setRound((round += 1));
+  const handleClick = (buttonChoiceName: string) => {
+    buttonChoiceName === correctAnswerInstrument.name
+      ? setGameState({
+          ...gameState,
+          score: gameState["score"] + 1,
+          round: gameState["round"] + 1,
+        })
+      : setGameState({ ...gameState, round: gameState["round"] + 1 });
   };
   const randomizeAnswers = (
-    instrumentRangeData: instrumentRange[],
-    chosenInstrument: instrumentRange
+    instruments: Instrument[],
+    correctAnswerInstrument: Instrument
   ) => {
-    let randomizedInstruments: instrumentRange[] = [];
+    let randomizedInstruments: Instrument[] = [];
     let i = 0;
     while (randomizedInstruments.length < 3) {
-      let randomInst =
-        instrumentRangeData[
-          Math.floor(Math.random() * instrumentRangeData.length)
-        ];
+      let randomInst = instruments[getRandomIndex(instruments)];
       if (
         !randomizedInstruments.includes(randomInst) &&
-        randomInst !== chosenInstrument
+        randomInst !== correctAnswerInstrument
       ) {
         randomizedInstruments.push(randomInst);
       }
       i++;
     }
 
-    setChosenInstrument(chosenInstrument);
+    setCorrectAnswerInstrument(correctAnswerInstrument);
 
-    randomizedInstruments = [...randomizedInstruments, chosenInstrument];
-    randomizedInstruments = fisherYatesShuffle(randomizedInstruments);
-    setInstrumentRanges(randomizedInstruments);
+    randomizedInstruments = fisherYatesShuffle([
+      ...randomizedInstruments,
+      correctAnswerInstrument,
+    ]);
+    setInstruments(randomizedInstruments);
   };
   useEffect(() => {
-    const fetchInstrumentRanges = async () => {
-      const response = await fetch("/instrument-ranges.json");
-      const instrumentRangeData = await response.json();
-      const chosenInstrument =
-        instrumentRangeData[
-          Math.floor(Math.random() * instrumentRangeData.length)
-        ];
-      randomizeAnswers(instrumentRangeData, chosenInstrument);
+    const fetchInstrument = async () => {
+      const response = await fetch("/instruments.json");
+      const instruments = await response.json();
+      const correctAnswerInstrument = instruments[getRandomIndex(instruments)];
+      randomizeAnswers(instruments, correctAnswerInstrument);
     };
-    fetchInstrumentRanges();
+    fetchInstrument();
   }, []);
   return (
     <div>
       <h1>Orchestral Range Game</h1>
-      <ScoreDisplay score={score} />
-      <RoundDisplay round={round} maxRounds={maxRounds} />
+      <ScoreDisplay score={gameState.score} />
+      <RoundDisplay round={gameState.round} maxRounds={maxRounds} />
       <RightWrongDisplay />
-      <RangeDisplay chosenInstrument={chosenInstrument} />
-      <AnswerChoices instruments={instrumentRanges} handleClick={handleClick} />
+      <RangeDisplay correctAnswerInstrument={correctAnswerInstrument} />
+      <AnswerChoices instruments={instruments} handleClick={handleClick} />
     </div>
   );
 }

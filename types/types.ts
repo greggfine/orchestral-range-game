@@ -1,11 +1,13 @@
-export type instrumentRange = {
+type handleClickFn = (name: string) => void;
+
+export type Instrument = {
   name: string;
   range: string;
   id: number;
-  handleClick?: (name: string) => void;
+  handleClick?: handleClickFn;
 };
 
 export type answerChoicesProps = {
-  instruments: instrumentRange[];
-  handleClick: (name: string) => void;
+  instruments: Instrument[];
+  handleClick: handleClickFn;
 };

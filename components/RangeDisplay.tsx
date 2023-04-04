@@ -1,14 +1,14 @@
 import styles from "./rangeDisplay.module.scss";
-import { instrumentRange } from "../types/types";
+import { Instrument } from "../types/types";
 
 type Props = {
-  chosenInstrument: instrumentRange;
+  correctAnswerInstrument: Instrument;
 };
 
-const RangeDisplay = ({ chosenInstrument }: Props) => {
+const RangeDisplay = ({ correctAnswerInstrument }: Props) => {
   return (
     <p>
-      {chosenInstrument.name} {chosenInstrument.range}
+      {correctAnswerInstrument.name} {correctAnswerInstrument.range}
     </p>
   );
 };
