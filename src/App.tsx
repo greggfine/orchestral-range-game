@@ -6,6 +6,7 @@ import RightWrongDisplay from "../components/RightWrongDisplay";
 import ScoreDisplay from "../components/ScoreDisplay";
 import RoundDisplay from "../components/RoundDisplay";
 import RangeDisplay from "../components/RangeDisplay";
+import { fisherYatesShuffle } from "./utils";
 
 function App() {
   const maxRounds = 3;
@@ -17,16 +18,23 @@ function App() {
     range: "",
     id: 0,
   });
+
   let [score, setScore] = useState(0);
   let [round, setRound] = useState(1);
+
   const handleClick = (name: string) => {
+    console.log(name);
+
     if (name === chosenInstrument.name) {
       setScore((score += 1));
     }
     setRound((round += 1));
   };
-  const randomizeAnswers = (instrumentRangeData, chosenInstrument) => {
-    let randomizedInstruments = [];
+  const randomizeAnswers = (
+    instrumentRangeData: instrumentRange[],
+    chosenInstrument: instrumentRange
+  ) => {
+    let randomizedInstruments: instrumentRange[] = [];
     let i = 0;
     while (randomizedInstruments.length < 3) {
       let randomInst =
@@ -41,16 +49,11 @@ function App() {
       }
       i++;
     }
+
     setChosenInstrument(chosenInstrument);
+
     randomizedInstruments = [...randomizedInstruments, chosenInstrument];
-    // Shuffle the array using Fisher-Yates algorithm
-    for (let i = randomizedInstruments.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [randomizedInstruments[i], randomizedInstruments[j]] = [
-        randomizedInstruments[j],
-        randomizedInstruments[i],
-      ];
-    }
+    randomizedInstruments = fisherYatesShuffle(randomizedInstruments);
     setInstrumentRanges(randomizedInstruments);
   };
   useEffect(() => {

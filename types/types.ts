@@ -2,10 +2,10 @@ export type instrumentRange = {
   name: string;
   range: string;
   id: number;
-  handleClick?: () => void;
+  handleClick?: (name: string) => void;
 };
 
 export type answerChoicesProps = {
   instruments: instrumentRange[];
-  handleClick: () => void;
+  handleClick: (name: string) => void;
 };

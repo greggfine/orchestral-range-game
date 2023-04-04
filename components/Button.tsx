@@ -3,7 +3,10 @@ import { instrumentRange } from "../types/types";
 
 const Button = ({ name, range, id, handleClick }: instrumentRange) => {
   return (
-    <button className={styles.button} onClick={() => handleClick(name)}>
+    <button
+      className={styles.button}
+      onClick={() => handleClick && handleClick(name)}
+    >
       {name}
     </button>
   );
