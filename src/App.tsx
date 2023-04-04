@@ -25,16 +25,43 @@ function App() {
     }
     setRound((round += 1));
   };
+  const randomizeAnswers = (instrumentRangeData, chosenInstrument) => {
+    let randomizedInstruments = [];
+    let i = 0;
+    while (randomizedInstruments.length < 3) {
+      let randomInst =
+        instrumentRangeData[
+          Math.floor(Math.random() * instrumentRangeData.length)
+        ];
+      if (
+        !randomizedInstruments.includes(randomInst) &&
+        randomInst !== chosenInstrument
+      ) {
+        randomizedInstruments.push(randomInst);
+      }
+      i++;
+    }
+    setChosenInstrument(chosenInstrument);
+    randomizedInstruments = [...randomizedInstruments, chosenInstrument];
+    // Shuffle the array using Fisher-Yates algorithm
+    for (let i = randomizedInstruments.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [randomizedInstruments[i], randomizedInstruments[j]] = [
+        randomizedInstruments[j],
+        randomizedInstruments[i],
+      ];
+    }
+    setInstrumentRanges(randomizedInstruments);
+  };
   useEffect(() => {
     const fetchInstrumentRanges = async () => {
       const response = await fetch("/instrument-ranges.json");
       const instrumentRangeData = await response.json();
-      setInstrumentRanges(instrumentRangeData);
-      setChosenInstrument(
+      const chosenInstrument =
         instrumentRangeData[
           Math.floor(Math.random() * instrumentRangeData.length)
-        ]
-      );
+        ];
+      randomizeAnswers(instrumentRangeData, chosenInstrument);
     };
     fetchInstrumentRanges();
   }, []);
