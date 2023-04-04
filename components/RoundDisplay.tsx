@@ -1,5 +1,9 @@
 import styles from "./roundDisplay.module.scss";
-const RoundDisplay = ({ round, maxRounds }) => {
+type RoundDisplayProps = {
+  round: number;
+  maxRounds: number;
+};
+const RoundDisplay = ({ round, maxRounds }: RoundDisplayProps) => {
   return (
     <p>
       RoundDisplay: {round} of {maxRounds}

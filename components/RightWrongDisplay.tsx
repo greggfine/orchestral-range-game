@@ -12,12 +12,10 @@ const RightWrongDisplay = ({ isCorrectAnswer }: rightWrongDisplayProps) => {
       <img
         src={rightAnswer}
         style={isCorrectAnswer ? { display: "block" } : { display: "none" }}
-        // className={styles.answerDisplay}
       />
       <img
         src={wrongAnswer}
         style={isCorrectAnswer ? { display: "none" } : { display: "block" }}
-        // className={styles.answerDisplay}
       />
     </>
   );

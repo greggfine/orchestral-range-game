@@ -12,8 +12,10 @@ import ScoreDisplay from "../components/ScoreDisplay";
 
 function App() {
   const maxRounds = 3;
+  const roundGap = 1000;
   const [instruments, setInstruments] = useState<Instrument[]>([]);
-  const [correctAnswerInstrument, setCorrectAnswerInstrument] =
+  const [gameOver, setGameOver] = useState(false);
+  let [correctAnswerInstrument, setCorrectAnswerInstrument] =
     useState<Instrument>({
       name: "",
       range: "",
@@ -25,18 +27,36 @@ function App() {
   let [rightWrongDisplayIsVisible, setRightWrongDisplayIsVisible] =
     useState(false);
 
+  const init = () => {
+    setGameState({ score: 0, round: 1 });
+    setGameOver(false);
+    setRightWrongDisplayIsVisible(false);
+    generateAnswerAndRandomizedInstruments(instruments);
+  };
+
   const handleClick = (buttonChoiceName: string) => {
     buttonChoiceName === correctAnswerInstrument.name
       ? (setGameState({
           ...gameState,
           score: gameState["score"] + 1,
-          round: gameState["round"] + 1,
         }),
         setIsCorrectAnswer(true))
-      : (setGameState({ ...gameState, round: gameState["round"] + 1 }),
-        setIsCorrectAnswer(false));
+      : (setGameState({ ...gameState }), setIsCorrectAnswer(false));
 
     setRightWrongDisplayIsVisible(true);
+    if (gameState.round < maxRounds) {
+      setTimeout(() => {
+        setGameState((prevState) => {
+          return { ...prevState, round: prevState["round"] + 1 };
+        });
+        setRightWrongDisplayIsVisible(false);
+        generateAnswerAndRandomizedInstruments(instruments);
+      }, roundGap);
+    } else {
+      setTimeout(() => {
+        setGameOver(true);
+      }, roundGap);
+    }
   };
   const randomizeAnswers = (
     instruments: Instrument[],
@@ -67,12 +87,17 @@ function App() {
     const fetchInstrument = async () => {
       const response = await fetch("/instruments.json");
       const instruments = await response.json();
-      const correctAnswerInstrument = instruments[getRandomIndex(instruments)];
-      randomizeAnswers(instruments, correctAnswerInstrument);
+      generateAnswerAndRandomizedInstruments(instruments);
     };
     fetchInstrument();
   }, []);
-  return (
+  const generateAnswerAndRandomizedInstruments = (
+    instruments: Instrument[]
+  ) => {
+    const correctAnswerInstrument = instruments[getRandomIndex(instruments)];
+    randomizeAnswers(instruments, correctAnswerInstrument);
+  };
+  return !gameOver ? (
     <div>
       <h1>Orchestral Range Game</h1>
       <ScoreDisplay score={gameState.score} />
@@ -82,6 +107,12 @@ function App() {
       )}
       <RangeDisplay correctAnswerInstrument={correctAnswerInstrument} />
       <AnswerChoices instruments={instruments} handleClick={handleClick} />
+    </div>
+  ) : (
+    <div>
+      <h1>GAME OVER</h1>
+      <h2>Your Score: {gameState.score}</h2>
+      <button onClick={init}>Play Again?</button>
     </div>
   );
 }
