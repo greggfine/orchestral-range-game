@@ -8,10 +8,15 @@ type Props = {
 
 const RangeDisplay = ({ correctAnswerInstrument }: Props) => {
   return (
-    <>
-      <img src={IMAGE_BASE_PATH + correctAnswerInstrument.image} alt="" />
+    <div className={styles.rangeDisplay}>
+      <img
+        src={IMAGE_BASE_PATH + correctAnswerInstrument.image}
+        alt=""
+        className={styles.rangeDisplay__rangeDisplayImage}
+        style={{ width: "25%" }}
+      />
       <p>{correctAnswerInstrument.range}</p>
-    </>
+    </div>
   );
 };
 

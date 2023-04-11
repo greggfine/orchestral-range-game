@@ -1,0 +1,28 @@
+.keyboard {
+  display: inline-flex;
+  //   display: flex;
+  justify-content: space-around;
+  //   flex-wrap: wrap;
+  //   justify-content: flex-start;
+  //   width: 600px;
+  //   margin: 0 auto;
+  //   position: relative;
+}
+
+.keyWhite {
+  width: 40px;
+  height: 200px;
+  border: 1px solid black;
+  position: relative;
+  background-color: white;
+}
+
+.keyBlack {
+  background-color: black;
+  width: 30px;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  z-index: 1;
+}

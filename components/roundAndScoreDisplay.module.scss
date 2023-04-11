@@ -1,0 +1,11 @@
+.roundDisplay,
+.scoreDisplay {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.scoreDisplay {
+  order: 0;
+}
+.roundDisplay {
+  order: 2;
+}

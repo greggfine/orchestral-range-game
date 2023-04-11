@@ -1,7 +1,11 @@
-import styles from "./scoreDisplay.module.scss";
+import styles from "./roundAndScoreDisplay.module.scss";
 
-const ScoreDisplay = ({ score }) => {
-  return <p>ScoreDisplay: {score}</p>;
+type ScoreProps = {
+  score: number;
+};
+
+const ScoreDisplay = ({ score }: ScoreProps) => {
+  return <p className={styles.scoreDisplay}>Score: {score}</p>;
 };
 
 export default ScoreDisplay;

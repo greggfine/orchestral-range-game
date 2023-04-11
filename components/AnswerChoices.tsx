@@ -2,14 +2,13 @@ import { answerChoicesProps } from "../types/types";
 import styles from "./answerchoices.module.scss";
 import Button from "../components/Button";
 
+const MAX_INSTRUMENTS = 4;
+
 const AnswerChoices = ({ instruments, handleClick }: answerChoicesProps) => {
   return (
-    <ul
-      className={styles.answerChoices}
-      style={{ listStyleType: "none", display: "flex", gap: "10px" }}
-    >
+    <div className={styles.answerChoices}>
       {instruments.map((instrument, idx) => {
-        if (idx < 4) {
+        if (idx < MAX_INSTRUMENTS) {
           return (
             <Button
               {...instrument}
@@ -19,7 +18,7 @@ const AnswerChoices = ({ instruments, handleClick }: answerChoicesProps) => {
           );
         }
       })}
-    </ul>
+    </div>
   );
 };
 

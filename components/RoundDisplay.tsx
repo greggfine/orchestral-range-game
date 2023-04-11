@@ -1,12 +1,12 @@
-import styles from "./roundDisplay.module.scss";
+import styles from "./roundAndScoreDisplay.module.scss";
 type RoundDisplayProps = {
   round: number;
   maxRounds: number;
 };
 const RoundDisplay = ({ round, maxRounds }: RoundDisplayProps) => {
   return (
-    <p>
-      RoundDisplay: {round} of {maxRounds}
+    <p className={styles.roundDisplay}>
+      Round: {round}/{maxRounds}
     </p>
   );
 };

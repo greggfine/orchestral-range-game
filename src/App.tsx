@@ -5,43 +5,62 @@ import { Instrument } from "../types/types";
 import { fisherYatesShuffle, getRandomIndex } from "./utils";
 
 import AnswerChoices from "../components/AnswerChoices";
+import HintDisplay from "../components/HintDisplay";
+import HintToggle from "../components/HintToggle";
 import RangeDisplay from "../components/RangeDisplay";
 import RightWrongDisplay from "../components/RightWrongDisplay";
 import RoundDisplay from "../components/RoundDisplay";
 import ScoreDisplay from "../components/ScoreDisplay";
+import Piano from "../components/Piano";
 
 const rightAnswer = new Audio("src/assets/audio/correctAnswer.wav");
 const wrongAnswer = new Audio("src/assets/audio/wrongAnswer.wav");
 
+const maxRounds = 2;
+const roundGap = 3000;
+
 function App() {
-  const maxRounds = 3;
-  const roundGap = 1000;
+  const [hintsVisible, setHintsVisible] = useState(false);
+  const [initialInstruments, setInitialinstruments] = useState<Instrument[]>(
+    []
+  );
   const [instruments, setInstruments] = useState<Instrument[]>([]);
   const [gameOver, setGameOver] = useState(false);
-  let [correctAnswerInstrument, setCorrectAnswerInstrument] =
+  const [correctAnswerInstrument, setCorrectAnswerInstrument] =
     useState<Instrument>({
       name: "",
       range: "",
       id: 0,
     });
 
-  let [gameState, setGameState] = useState({ score: 0, round: 1 });
-  let [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
-  let [rightWrongDisplayIsVisible, setRightWrongDisplayIsVisible] =
+  const [gameState, setGameState] = useState({ score: 0, round: 1 });
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
+  const [rightWrongDisplayIsVisible, setRightWrongDisplayIsVisible] =
     useState(false);
+
+  const toggleHints = () => {
+    setHintsVisible(!hintsVisible);
+  };
 
   const init = () => {
     setGameState({ score: 0, round: 1 });
     setGameOver(false);
     setRightWrongDisplayIsVisible(false);
-    generateAnswerAndRandomizedInstruments(instruments);
+    setInstruments([]);
+    setCorrectAnswerInstrument({
+      name: "",
+      range: "",
+      id: 0,
+    });
+    setHintsVisible(false);
+    generateAnswerAndRandomizedInstruments(initialInstruments);
   };
 
   const handleClick = (buttonChoiceName: string) => {
     buttonChoiceName === correctAnswerInstrument.name
       ? (setGameState({
           ...gameState,
-          score: gameState["score"] + 1,
+          score: gameState.score + 1,
         }),
         setIsCorrectAnswer(true),
         rightAnswer.play())
@@ -56,7 +75,7 @@ function App() {
           return { ...prevState, round: prevState["round"] + 1 };
         });
         setRightWrongDisplayIsVisible(false);
-        generateAnswerAndRandomizedInstruments(instruments);
+        generateAnswerAndRandomizedInstruments(initialInstruments);
       }, roundGap);
     } else {
       setTimeout(() => {
@@ -93,6 +112,7 @@ function App() {
     const fetchInstrument = async () => {
       const response = await fetch("/instruments.json");
       const instruments = await response.json();
+      setInitialinstruments(instruments);
       generateAnswerAndRandomizedInstruments(instruments);
     };
     fetchInstrument();
@@ -104,15 +124,31 @@ function App() {
     randomizeAnswers(instruments, correctAnswerInstrument);
   };
   return !gameOver ? (
-    <div>
-      <h1>Orchestral Range Game</h1>
-      <ScoreDisplay score={gameState.score} />
-      <RoundDisplay round={gameState.round} maxRounds={maxRounds} />
-      {rightWrongDisplayIsVisible && (
-        <RightWrongDisplay isCorrectAnswer={isCorrectAnswer} />
-      )}
-      <RangeDisplay correctAnswerInstrument={correctAnswerInstrument} />
+    <div className={styles.app}>
+      {/* <div style={{ width: "100vw", border: "20px solid red" }}>
+        <Piano />
+        <Piano />
+        <Piano />
+        <Piano />
+      </div> */}
+      <h1 className={styles.app__heading}>Orchestral Range Game</h1>
+      <div className={styles.app__flexContainer}>
+        <div className="app__wrapper">
+          <ScoreDisplay score={gameState.score} />
+          {rightWrongDisplayIsVisible && (
+            <RightWrongDisplay isCorrectAnswer={isCorrectAnswer} />
+          )}
+        </div>
+        <RoundDisplay round={gameState.round} maxRounds={maxRounds} />
+        <RangeDisplay correctAnswerInstrument={correctAnswerInstrument} />
+      </div>
       <AnswerChoices instruments={instruments} handleClick={handleClick} />
+      <br />
+      <HintToggle toggleHints={toggleHints} />
+      <HintDisplay
+        correctAnswerInstrument={correctAnswerInstrument}
+        hintsVisible={hintsVisible}
+      />
     </div>
   ) : (
     <div>

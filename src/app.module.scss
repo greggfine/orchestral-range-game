@@ -1,0 +1,12 @@
+.app {
+  &__flexContainer {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  &__heading {
+    margin-top: 60px;
+    text-align: center;
+  }
+}

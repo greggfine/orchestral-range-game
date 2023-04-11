@@ -1,18 +1,98 @@
 [
-  { "name": "oboe", "range": "c3-c5", "id": 0, "image": "oboe.png" },
-  { "name": "flute", "range": "d3-d6", "id": 1, "image": "piccolo.png" },
-  { "name": "cello", "range": "c4-c5", "id": 2, "image": "oboe.png" },
-  { "name": "violin", "range": "b1-b6", "id": 3, "image": "piccolo.png" },
-  { "name": "viola", "range": "e3-e5", "id": 4, "image": "oboe.png" },
-  { "name": "trombone", "range": "f3-f6", "id": 5, "image": "piccolo.png" },
-  { "name": "trumpet", "range": "g3-g5", "id": 6, "image": "oboe.png" },
-  { "name": "piccolo", "range": "a3-a6", "id": 7, "image": "piccolo.png" },
-  { "name": "piano", "range": "c3-c5", "id": 8, "image": "oboe.png" },
-  { "name": "guitar", "range": "d3-d6", "id": 9, "image": "piccolo.png" },
-  { "name": "harp", "range": "c4-c5", "id": 10, "image": "oboe.png" },
-  { "name": "timpani", "range": "b1-b6", "id": 11, "image": "piccolo.png" },
-  { "name": "bassoon", "range": "e3-e5", "id": 12, "image": "oboe.png" },
-  { "name": "bass", "range": "f3-f6", "id": 13, "image": "piccolo.png" },
-  { "name": "clarinet", "range": "g3-g5", "id": 14, "image": "oboe.png" },
-  { "name": "triang", "range": "a3-a6", "id": 15, "image": "piccolo.png" }
+  {
+    "name": "Alto Flute",
+    "range": "G3-G6",
+    "id": 1,
+    "image": "alto-flute.svg",
+    "shortDescription": "A type of flute pitched in the key of G",
+    "instrumentFamily": "Woodwind"
+  },
+  {
+    "name": "Alto Saxophone",
+    "range": "Ab3-F6",
+    "id": 2,
+    "image": "alto-saxophone.svg",
+    "shortDescription": "A member of the saxophone family of woodwind instruments",
+    "instrumentFamily": "Woodwind"
+  },
+  {
+    "name": "Bells",
+    "range": "C5 - C8",
+    "id": 13,
+    "image": "bells.svg",
+    "shortDescription": "A percussion instrument consisting of a set of metal bars of varying lengths, struck with mallets",
+    "instrumentFamily": "Percussion"
+  },
+  {
+    "name": "Clarinet in Bb",
+    "range": "E3 - G6",
+    "id": 16,
+    "image": "clarinet-in-bb.svg",
+    "shortDescription": "A woodwind instrument with a single reed, played with both hands and the lips",
+    "instrumentFamily": "Woodwind"
+  },
+  {
+    "name": "Clarinet in Eb",
+    "range": "G3 - C7",
+    "id": 17,
+    "image": "clarinet-in-eb.svg",
+    "shortDescription": "A woodwind instrument with a single reed, played with both hands and the lips",
+    "instrumentFamily": "Woodwind"
+  },
+  {
+    "name": "Oboe",
+    "range": "Bb3-G6",
+    "id": 36,
+    "image": "oboe.svg",
+    "shortDescription": "Woodwind instrument with a double reed and conical bore",
+    "instrumentFamily": "Woodwind"
+  },
+  {
+    "name": "Ocarina",
+    "range": "C5–F6",
+    "id": 38,
+    "image": "ocarina.svg",
+    "shortDescription": "An ancient wind musical instrument.",
+    "instrumentFamily": "Aerophone"
+  },
+  {
+    "name": "Piccolo",
+    "range": "D5–C8",
+    "id": 42,
+    "image": "piccolo.svg",
+    "shortDescription": "A small flute that plays an octave higher than the standard concert flute.",
+    "instrumentFamily": "Aerophone"
+  },
+  {
+    "name": "Soprano Saxophone",
+    "range": "C4-F6",
+    "id": 47,
+    "image": "soprano-saxophone.svg",
+    "shortDescription": "Woodwind instrument that plays in the soprano range.",
+    "instrumentFamily": "Woodwind"
+  },
+  {
+    "name": "Vibraphone",
+    "range": "F3 to F6",
+    "id": 56,
+    "image": "vibraphone.svg",
+    "shortDescription": "Percussion instrument with metal bars and a motor-driven rotating disk to create a vibrato effect.",
+    "instrumentFamily": "Percussion"
+  },
+  {
+    "name": "Violin",
+    "range": "G3 to E7",
+    "id": 58,
+    "image": "violin.svg",
+    "shortDescription": "Small string instrument played with a bow or plucked with the fingers.",
+    "instrumentFamily": "String"
+  },
+  {
+    "name": "Xylophone",
+    "range": "F3 to C7",
+    "id": 61,
+    "image": "xylophone.svg",
+    "shortDescription": "Percussion instrument with wooden bars that are struck with mallets to produce sound.",
+    "instrumentFamily": "Percussion"
+  }
 ]

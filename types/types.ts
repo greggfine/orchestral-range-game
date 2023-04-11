@@ -6,6 +6,8 @@ export type Instrument = {
   id: number;
   image?: string;
   handleClick?: handleClickFn;
+  shortDescription?: string;
+  instrumentFamily?: string;
 };
 
 export type answerChoicesProps = {

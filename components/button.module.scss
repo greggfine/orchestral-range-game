@@ -1,5 +1,9 @@
 .button {
-  padding: 0.5em 1em;
+  background: #eeeeee;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  border-radius: 6px;
+  padding: 0.75em 1.5em;
+  font-size: 1.1rem;
 
   &:hover {
     color: purple;
