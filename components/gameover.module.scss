@@ -1,0 +1,26 @@
+.gameOver {
+  display: grid;
+  place-items: center;
+  margin-top: 60px;
+  &__btn {
+    background: #eeeeee;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border-radius: 6px;
+    padding: 0.5em 1.25em;
+    font-size: 1.1rem;
+    min-width: 120px;
+    width: 160px;
+
+    &:hover {
+      color: purple;
+      cursor: pointer;
+    }
+  }
+
+  &__heading {
+    font-size: 4rem;
+  }
+  &__score {
+    margin: 0 0 60px 0;
+  }
+}

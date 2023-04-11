@@ -1,5 +1,15 @@
 .answerChoices {
   display: flex;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 85%;
+  justify-content: space-around;
+}
+
+@media (min-width: 800px) {
+  .answerChoices {
+    flex-direction: row;
+    max-width: initial;
+  }
 }

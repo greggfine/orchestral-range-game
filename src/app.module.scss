@@ -1,12 +1,22 @@
 .app {
   &__flexContainer {
-    margin-top: 60px;
     display: flex;
-    justify-content: space-between;
-    gap: 32px;
+    flex-direction: column;
   }
   &__heading {
-    margin-top: 60px;
+    margin-top: 32px;
     text-align: center;
+    margin-bottom: 0;
+  }
+  &__hintsWrapper {
+    max-width: 90%;
+    margin: auto;
+  }
+  &__scoreAndRound {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    margin: 0 auto 24px;
+    min-width: 90%;
   }
 }

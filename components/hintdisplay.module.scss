@@ -1,3 +1,13 @@
 .hintDisplay {
+  margin-top: 24px;
   opacity: 0;
+  padding: 0;
+  max-width: 90%;
+
+  &__instrumentFamily {
+    margin-top: 6px;
+    &__label {
+      font-weight: 700;
+    }
+  }
 }

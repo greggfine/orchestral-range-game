@@ -7,9 +7,9 @@ export type Props = {
 
 const HintToggle = ({ toggleHints }: Props) => {
   return (
-    <div>
+    <div className={styles.hintsToggle}>
       <label htmlFor="hints" className={styles.switch}>
-        <span className={styles.label}>Enable Hints</span>
+        <span className={styles.label}>Hints</span>
         <input type="checkbox" name="hints" id="hints" onChange={toggleHints} />
         <span className={`${styles.slider} ${styles.round}`}></span>
       </label>

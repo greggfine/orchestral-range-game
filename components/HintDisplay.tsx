@@ -13,7 +13,12 @@ const Hints = ({ correctAnswerInstrument, hintsVisible }: Props) => {
       className={styles.hintDisplay}
     >
       <p>{correctAnswerInstrument.shortDescription}</p>
-      <p>Instrument Family: {correctAnswerInstrument.instrumentFamily}</p>
+      <p className={styles.hintDisplay__instrumentFamily}>
+        <span className={styles.hintDisplay__instrumentFamily__label}>
+          Instrument Family:
+        </span>{" "}
+        {correctAnswerInstrument.instrumentFamily}
+      </p>
     </motion.div>
   );
 };

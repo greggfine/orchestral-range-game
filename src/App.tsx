@@ -11,12 +11,13 @@ import RangeDisplay from "../components/RangeDisplay";
 import RightWrongDisplay from "../components/RightWrongDisplay";
 import RoundDisplay from "../components/RoundDisplay";
 import ScoreDisplay from "../components/ScoreDisplay";
+import GameOver from "../components/GameOver";
 import Piano from "../components/Piano";
 
 const rightAnswer = new Audio("src/assets/audio/correctAnswer.wav");
 const wrongAnswer = new Audio("src/assets/audio/wrongAnswer.wav");
 
-const maxRounds = 2;
+const maxRounds = 5;
 const roundGap = 3000;
 
 function App() {
@@ -133,29 +134,27 @@ function App() {
       </div> */}
       <h1 className={styles.app__heading}>Orchestral Range Game</h1>
       <div className={styles.app__flexContainer}>
-        <div className="app__wrapper">
+        <div className={styles.app__scoreAndRound}>
           <ScoreDisplay score={gameState.score} />
           {rightWrongDisplayIsVisible && (
             <RightWrongDisplay isCorrectAnswer={isCorrectAnswer} />
           )}
+          <RoundDisplay round={gameState.round} maxRounds={maxRounds} />
         </div>
-        <RoundDisplay round={gameState.round} maxRounds={maxRounds} />
         <RangeDisplay correctAnswerInstrument={correctAnswerInstrument} />
+        <AnswerChoices instruments={instruments} handleClick={handleClick} />
+        <br />
+        <div className={styles.app__hintsWrapper}>
+          <HintToggle toggleHints={toggleHints} />
+          <HintDisplay
+            correctAnswerInstrument={correctAnswerInstrument}
+            hintsVisible={hintsVisible}
+          />
+        </div>
       </div>
-      <AnswerChoices instruments={instruments} handleClick={handleClick} />
-      <br />
-      <HintToggle toggleHints={toggleHints} />
-      <HintDisplay
-        correctAnswerInstrument={correctAnswerInstrument}
-        hintsVisible={hintsVisible}
-      />
     </div>
   ) : (
-    <div>
-      <h1>GAME OVER</h1>
-      <h2>Your Score: {gameState.score}</h2>
-      <button onClick={init}>Play Again?</button>
-    </div>
+    <GameOver gameState={gameState} init={init} />
   );
 }
 
