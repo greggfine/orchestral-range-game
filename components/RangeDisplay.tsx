@@ -10,12 +10,19 @@ const RangeDisplay = ({ correctAnswerInstrument }: Props) => {
   return (
     <div className={styles.rangeDisplay}>
       <img
+        src="src/assets/images/ellipse.svg"
+        alt="ellipse"
+        className={styles.rangeDisplay__ellipse}
+      />
+      <img
         src={IMAGE_BASE_PATH + correctAnswerInstrument.image}
         alt=""
-        className={styles.rangeDisplay__rangeDisplayImage}
+        className={styles.rangeDisplay__image}
         style={{ width: "25%" }}
       />
-      <p>{correctAnswerInstrument.range}</p>
+      <div className={styles.rangeDisplay__text}>
+        {correctAnswerInstrument.range}
+      </div>
     </div>
   );
 };

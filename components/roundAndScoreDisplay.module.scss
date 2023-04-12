@@ -1,11 +1,18 @@
 .roundDisplay,
 .scoreDisplay {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: var(--font-size-nav);
+  display: flex;
+  &__text {
+    margin-left: 8px;
+  }
 }
 .scoreDisplay {
-  order: 0;
+  &__icon {
+    width: 28px;
+  }
 }
 .roundDisplay {
-  order: 2;
+  &__icon {
+    width: 26px;
+  }
 }

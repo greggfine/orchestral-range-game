@@ -1,6 +1,6 @@
 import styles from "./rightWrongDisplay.module.scss";
-import rightAnswer from "../src/assets/images/right-answer.png";
-import wrongAnswer from "../src/assets/images/wrong-answer.png";
+import rightAnswer from "../src/assets/images/right-answer.svg";
+import wrongAnswer from "../src/assets/images/wrong-answer.svg";
 
 type rightWrongDisplayProps = {
   isCorrectAnswer: boolean;

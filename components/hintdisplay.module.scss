@@ -1,13 +1,24 @@
 .hintDisplay {
-  margin-top: 24px;
-  opacity: 0;
-  padding: 0;
-  max-width: 90%;
-
+  margin-top: var(--section-margin-top);
+  margin-bottom: var(--section-margin-top);
+  padding: 32px 32px 16px;
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--primaryBlack);
+  background-color: #fff;
+  border-radius: 8px;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
   &__instrumentFamily {
-    margin-top: 6px;
+    text-align: center;
     &__label {
       font-weight: 700;
     }
+  }
+  &__shortDescription {
+    text-align: center;
+    margin-top: calc(var(--section-margin-top) / 2);
   }
 }

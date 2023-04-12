@@ -1,8 +1,5 @@
 .hintsToggle {
-  // border: 10px solid #000;
-  // margin: 0;
-  // padding: 0 !important;
-  // text-align: center;
+  margin-top: var(--section-margin-top);
 }
 /* The switch - the box around the slider */
 .switch {
@@ -45,11 +42,11 @@
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: var(--successGreen);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px var(--successGreen);
 }
 
 input:checked + .slider:before {
@@ -68,7 +65,10 @@ input:checked + .slider:before {
 }
 
 .label {
-  margin-top: 40px;
   display: inline-block;
   width: max-content;
+  color: var(--primaryBlack);
+  vertical-align: bottom;
+  margin-right: 12px;
+  font-weight: 600;
 }

@@ -7,16 +7,43 @@
     margin-top: 32px;
     text-align: center;
     margin-bottom: 0;
+    color: var(--primaryPurple);
   }
   &__hintsWrapper {
-    max-width: 90%;
-    margin: auto;
+    margin-top: var(--section-margin-top);
+    background-image: url("src/assets/images/larisa-birta-slbOcNlWNHA-unsplash_reduced.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 200px;
+  }
+  &__hintsWrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--overlayPurple);
+    z-index: 0;
   }
   &__scoreAndRound {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    margin: 0 auto 24px;
-    min-width: 90%;
+    background-color: var(--primaryPurple);
+    padding: 12px 32px;
+    &__textWrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media (min-width: 960px) {
+        max-width: 660px;
+      }
+    }
+  }
+  &__startEndGameWrapper {
+    text-align: center;
   }
 }

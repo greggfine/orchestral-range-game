@@ -11,21 +11,23 @@ import RangeDisplay from "../components/RangeDisplay";
 import RightWrongDisplay from "../components/RightWrongDisplay";
 import RoundDisplay from "../components/RoundDisplay";
 import ScoreDisplay from "../components/ScoreDisplay";
+import StartGame from "../components/StartGame";
 import GameOver from "../components/GameOver";
 import Piano from "../components/Piano";
 
 const rightAnswer = new Audio("src/assets/audio/correctAnswer.wav");
 const wrongAnswer = new Audio("src/assets/audio/wrongAnswer.wav");
 
-const maxRounds = 5;
+const maxRounds = 2;
 const roundGap = 3000;
 
 function App() {
-  const [hintsVisible, setHintsVisible] = useState(false);
+  const [hintsVisible, setHintsVisible] = useState(!false);
   const [initialInstruments, setInitialinstruments] = useState<Instrument[]>(
     []
   );
   const [instruments, setInstruments] = useState<Instrument[]>([]);
+  const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [correctAnswerInstrument, setCorrectAnswerInstrument] =
     useState<Instrument>({
@@ -46,6 +48,7 @@ function App() {
   const init = () => {
     setGameState({ score: 0, round: 1 });
     setGameOver(false);
+    setGameStarted(true);
     setRightWrongDisplayIsVisible(false);
     setInstruments([]);
     setCorrectAnswerInstrument({
@@ -81,6 +84,7 @@ function App() {
     } else {
       setTimeout(() => {
         setGameOver(true);
+        setGameStarted(false);
       }, roundGap);
     }
   };
@@ -124,37 +128,52 @@ function App() {
     const correctAnswerInstrument = instruments[getRandomIndex(instruments)];
     randomizeAnswers(instruments, correctAnswerInstrument);
   };
-  return !gameOver ? (
-    <div className={styles.app}>
-      {/* <div style={{ width: "100vw", border: "20px solid red" }}>
-        <Piano />
-        <Piano />
-        <Piano />
-        <Piano />
-      </div> */}
-      <h1 className={styles.app__heading}>Orchestral Range Game</h1>
-      <div className={styles.app__flexContainer}>
-        <div className={styles.app__scoreAndRound}>
-          <ScoreDisplay score={gameState.score} />
-          {rightWrongDisplayIsVisible && (
-            <RightWrongDisplay isCorrectAnswer={isCorrectAnswer} />
-          )}
-          <RoundDisplay round={gameState.round} maxRounds={maxRounds} />
-        </div>
-        <RangeDisplay correctAnswerInstrument={correctAnswerInstrument} />
-        <AnswerChoices instruments={instruments} handleClick={handleClick} />
-        <br />
-        <div className={styles.app__hintsWrapper}>
+  return (
+    <div>
+      {!gameStarted && !gameOver && (
+        <div className={styles.app__startEndGameWrapper}>
+          <div className={styles.app__scoreAndRound}></div>
+          <StartGame setGameStarted={setGameStarted} />
           <HintToggle toggleHints={toggleHints} />
-          <HintDisplay
-            correctAnswerInstrument={correctAnswerInstrument}
-            hintsVisible={hintsVisible}
-          />
+          <div className={styles.app__hintsWrapper}></div>
         </div>
-      </div>
+      )}
+      {gameStarted && !gameOver && (
+        <div className={styles.app}>
+          <div className={styles.app__scoreAndRound}>
+            <div className={styles.app__scoreAndRound__textWrapper}>
+              <ScoreDisplay score={gameState.score} />
+              {rightWrongDisplayIsVisible && (
+                <RightWrongDisplay isCorrectAnswer={isCorrectAnswer} />
+              )}
+              <RoundDisplay round={gameState.round} maxRounds={maxRounds} />
+            </div>
+          </div>
+          <div className={styles.app__flexContainer}>
+            <RangeDisplay correctAnswerInstrument={correctAnswerInstrument} />
+            <AnswerChoices
+              instruments={instruments}
+              handleClick={handleClick}
+            />
+            <div className={styles.app__hintsWrapper}>
+              {/* <HintToggle toggleHints={toggleHints} /> */}
+              <HintDisplay
+                correctAnswerInstrument={correctAnswerInstrument}
+                hintsVisible={hintsVisible}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+      {!gameStarted && gameOver && (
+        <div className={styles.app__startEndGameWrapper}>
+          <div className={styles.app__scoreAndRound}></div>
+          <GameOver gameState={gameState} init={init} />
+          <HintToggle toggleHints={toggleHints} />
+          <div className={styles.app__hintsWrapper}></div>
+        </div>
+      )}
     </div>
-  ) : (
-    <GameOver gameState={gameState} init={init} />
   );
 }
 
