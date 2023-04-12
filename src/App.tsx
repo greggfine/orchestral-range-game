@@ -135,7 +135,7 @@ function App() {
     randomizeAnswers(instruments, correctAnswerInstrument);
   };
   return (
-    <div>
+    <>
       {!gameStarted && !gameOver && (
         <div className={styles.app__startEndGameWrapper}>
           <div>
@@ -164,13 +164,13 @@ function App() {
               handleClick={handleClick}
               btnsDisabled={btnsDisabled}
             />
-            <div className={styles.app__hintsWrapper}>
-              {/* <HintToggle toggleHints={toggleHints} /> */}
-              <HintDisplay
-                correctAnswerInstrument={correctAnswerInstrument}
-                hintsVisible={hintsVisible}
-              />
-            </div>
+          </div>
+          <div className={styles.app__hintsWrapper}>
+            {/* <HintToggle toggleHints={toggleHints} /> */}
+            <HintDisplay
+              correctAnswerInstrument={correctAnswerInstrument}
+              hintsVisible={hintsVisible}
+            />
           </div>
         </div>
       )}
@@ -182,7 +182,7 @@ function App() {
           <div className={styles.app__hintsWrapper}></div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

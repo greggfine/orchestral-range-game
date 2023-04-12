@@ -1,7 +1,9 @@
 .app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   &__flexContainer {
-    display: flex;
-    flex-direction: column;
+    flex-grow: 1;
   }
   &__heading {
     margin-top: 32px;
@@ -45,5 +47,8 @@
   }
   &__startEndGameWrapper {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 }
