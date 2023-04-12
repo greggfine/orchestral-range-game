@@ -13,15 +13,16 @@ import RoundDisplay from "../components/RoundDisplay";
 import ScoreDisplay from "../components/ScoreDisplay";
 import StartGame from "../components/StartGame";
 import GameOver from "../components/GameOver";
-import Piano from "../components/Piano";
 
 const rightAnswer = new Audio("src/assets/audio/correctAnswer.wav");
 const wrongAnswer = new Audio("src/assets/audio/wrongAnswer.wav");
 
 const maxRounds = 2;
 const roundGap = 3000;
+const volumeLevel = 0.1;
 
 function App() {
+  const [btnsDisabled, setBtnsDisabled] = useState(false);
   const [hintsVisible, setHintsVisible] = useState(false);
   const [initialInstruments, setInitialinstruments] = useState<Instrument[]>(
     []
@@ -46,6 +47,7 @@ function App() {
   };
 
   const init = () => {
+    setBtnsDisabled(false);
     setGameState({ score: 0, round: 1 });
     setGameOver(false);
     setGameStarted(true);
@@ -60,15 +62,18 @@ function App() {
   };
 
   const handleClick = (buttonChoiceName: string) => {
+    setBtnsDisabled(true);
     buttonChoiceName === correctAnswerInstrument.name
       ? (setGameState({
           ...gameState,
           score: gameState.score + 1,
         }),
         setIsCorrectAnswer(true),
+        (rightAnswer.volume = volumeLevel),
         rightAnswer.play())
       : (setGameState({ ...gameState }),
         setIsCorrectAnswer(false),
+        (wrongAnswer.volume = volumeLevel),
         wrongAnswer.play());
 
     setRightWrongDisplayIsVisible(true);
@@ -77,6 +82,7 @@ function App() {
         setGameState((prevState) => {
           return { ...prevState, round: prevState["round"] + 1 };
         });
+        setBtnsDisabled(false);
         setRightWrongDisplayIsVisible(false);
         generateAnswerAndRandomizedInstruments(initialInstruments);
       }, roundGap);
@@ -132,8 +138,10 @@ function App() {
     <div>
       {!gameStarted && !gameOver && (
         <div className={styles.app__startEndGameWrapper}>
-          <div className={styles.app__scoreAndRound}></div>
-          <StartGame setGameStarted={setGameStarted} />
+          <div>
+            <div className={styles.app__scoreAndRound}></div>
+            <StartGame setGameStarted={setGameStarted} />
+          </div>
           <HintToggle toggleHints={toggleHints} />
           <div className={styles.app__hintsWrapper}></div>
         </div>
@@ -154,6 +162,7 @@ function App() {
             <AnswerChoices
               instruments={instruments}
               handleClick={handleClick}
+              btnsDisabled={btnsDisabled}
             />
             <div className={styles.app__hintsWrapper}>
               {/* <HintToggle toggleHints={toggleHints} /> */}

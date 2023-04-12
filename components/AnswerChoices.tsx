@@ -4,7 +4,11 @@ import Button from "../components/Button";
 
 const MAX_INSTRUMENTS = 4;
 
-const AnswerChoices = ({ instruments, handleClick }: answerChoicesProps) => {
+const AnswerChoices = ({
+  instruments,
+  handleClick,
+  btnsDisabled,
+}: answerChoicesProps) => {
   return (
     <div className={styles.answerChoices}>
       {instruments.map((instrument, idx) => {
@@ -14,6 +18,7 @@ const AnswerChoices = ({ instruments, handleClick }: answerChoicesProps) => {
               {...instrument}
               key={instrument.id}
               handleClick={handleClick}
+              btnsDisabled={btnsDisabled}
             />
           );
         }

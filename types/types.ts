@@ -8,9 +8,11 @@ export type Instrument = {
   handleClick?: handleClickFn;
   shortDescription?: string;
   instrumentFamily?: string;
+  btnsDisabled?: boolean;
 };
 
 export type answerChoicesProps = {
   instruments: Instrument[];
   handleClick: handleClickFn;
+  btnsDisabled: boolean;
 };

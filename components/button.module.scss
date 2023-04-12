@@ -9,7 +9,12 @@
   border: 4px solid #e3d865;
   transition: all 100ms ease-in;
 
-  &:hover {
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled):hover {
     color: var(--primaryPurple);
     cursor: pointer;
     background-color: var(--accentYellow);
