@@ -22,7 +22,7 @@ const maxRounds = 2;
 const roundGap = 3000;
 
 function App() {
-  const [hintsVisible, setHintsVisible] = useState(!false);
+  const [hintsVisible, setHintsVisible] = useState(false);
   const [initialInstruments, setInitialinstruments] = useState<Instrument[]>(
     []
   );
@@ -42,7 +42,7 @@ function App() {
     useState(false);
 
   const toggleHints = () => {
-    setHintsVisible(!hintsVisible);
+    setHintsVisible(true);
   };
 
   const init = () => {
@@ -56,7 +56,6 @@ function App() {
       range: "",
       id: 0,
     });
-    setHintsVisible(false);
     generateAnswerAndRandomizedInstruments(initialInstruments);
   };
 
@@ -85,6 +84,7 @@ function App() {
       setTimeout(() => {
         setGameOver(true);
         setGameStarted(false);
+        setHintsVisible(false);
       }, roundGap);
     }
   };

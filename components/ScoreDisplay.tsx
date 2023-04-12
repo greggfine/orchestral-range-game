@@ -7,8 +7,6 @@ type ScoreProps = {
 };
 
 const ScoreDisplay = ({ score }: ScoreProps) => {
-  console.log(score);
-
   return (
     <div className={styles.scoreDisplay}>
       <img src={scoreIcon} alt="score" className={styles.scoreDisplay__icon} />
