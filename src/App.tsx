@@ -15,8 +15,8 @@ import ScoreDisplay from "../components/ScoreDisplay";
 import StartGame from "../components/StartGame";
 import GameOver from "../components/GameOver";
 
-const rightAnswer = new Audio("src/assets/audio/correctAnswer.wav");
-const wrongAnswer = new Audio("src/assets/audio/wrongAnswer.wav");
+const rightAnswer = new Audio("src/assets/audio/correctAnswer.mp3");
+const wrongAnswer = new Audio("src/assets/audio/wrongAnswer.mp3");
 
 const maxRounds = 2;
 const roundGap = 3000;
@@ -74,7 +74,7 @@ function App() {
         rightAnswer.play())
       : (setGameState({ ...gameState }),
         setIsCorrectAnswer(false),
-        (wrongAnswer.volume = volumeLevel),
+        (wrongAnswer.volume = volumeLevel * 3 ),
         wrongAnswer.play());
 
     setRightWrongDisplayIsVisible(true);
