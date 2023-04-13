@@ -1,4 +1,4 @@
-import styles from "./rangeDisplay.module.scss";
+import styles from "./range-display.module.scss";
 import { Instrument } from "../types/types";
 import { motion } from "framer-motion";
 const IMAGE_BASE_PATH = "/src/assets/images/ranges/";

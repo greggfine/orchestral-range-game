@@ -1,5 +1,5 @@
 declare var span: any;
-import styles from "./hinttoggle.module.scss";
+import styles from "./hint-toggle.module.scss";
 
 export type Props = {
   toggleHints: () => void;

@@ -1,4 +1,4 @@
-import styles from "./roundAndScoreDisplay.module.scss";
+import styles from "./round-and-score-display.module.scss";
 import roundsIcon from "../src/assets/images/rounds.svg";
 type RoundDisplayProps = {
   round: number;

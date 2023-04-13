@@ -1,4 +1,4 @@
-import styles from "./startgame.module.scss";
+import styles from "./start-game.module.scss";
 import btnStyles from "./button.module.scss";
 import scoreIcon from "../src/assets/images/score-black.svg";
 import conductor from "../src/assets/images/conductor.svg";
@@ -20,11 +20,14 @@ const StartGame = ({ setGameStarted }: Props) => {
         transition={{ type: "spring", stiffness: 320 }}
       />
       <h1 className={styles.startGame__heading}>Orchestral Range Game</h1>
-      <button className={btnStyles.button} onClick={() => {
-		startGame.volume = 0.5;
-	  	startGame.play();
-		setGameStarted(true)}}
-		>
+      <button
+        className={btnStyles.button}
+        onClick={() => {
+          startGame.volume = 0.5;
+          startGame.play();
+          setGameStarted(true);
+        }}
+      >
         Start Game
       </button>
     </div>

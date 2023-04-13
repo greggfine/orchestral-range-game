@@ -1,4 +1,4 @@
-import styles from "./hintdisplay.module.scss";
+import styles from "./hint-display.module.scss";
 import { Instrument } from "../types/types";
 import { motion } from "framer-motion";
 

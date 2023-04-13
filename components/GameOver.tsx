@@ -1,4 +1,4 @@
-import styles from "./gameover.module.scss";
+import styles from "./game-over.module.scss";
 import btnStyles from "./button.module.scss";
 import scoreIcon from "../src/assets/images/score-black.svg";
 import { motion } from "framer-motion";
