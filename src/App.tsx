@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./app.module.scss";
+import { motion } from "framer-motion";
 
 import { Instrument } from "../types/types";
 import { fisherYatesShuffle, getRandomIndex } from "./utils";
@@ -137,17 +138,26 @@ function App() {
   return (
     <>
       {!gameStarted && !gameOver && (
-        <div className={styles.app__startEndGameWrapper}>
+        <motion.div
+          key="gamestarted"
+          className={styles.app__startEndGameWrapper}
+        >
           <div>
             <div className={styles.app__scoreAndRound}></div>
             <StartGame setGameStarted={setGameStarted} />
           </div>
           <HintToggle toggleHints={toggleHints} />
           <div className={styles.app__hintsWrapper}></div>
-        </div>
+        </motion.div>
       )}
       {gameStarted && !gameOver && (
-        <div className={styles.app}>
+        <motion.div
+          className={styles.app}
+          key="gameplay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           <div className={styles.app__scoreAndRound}>
             <div className={styles.app__scoreAndRound__textWrapper}>
               <ScoreDisplay score={gameState.score} />
@@ -159,28 +169,33 @@ function App() {
           </div>
           <div className={styles.app__flexContainer}>
             <RangeDisplay correctAnswerInstrument={correctAnswerInstrument} />
+            <div className={styles.app__divider}></div>
             <AnswerChoices
               instruments={instruments}
               handleClick={handleClick}
               btnsDisabled={btnsDisabled}
             />
           </div>
-          <div className={styles.app__hintsWrapper}>
-            {/* <HintToggle toggleHints={toggleHints} /> */}
-            <HintDisplay
-              correctAnswerInstrument={correctAnswerInstrument}
-              hintsVisible={hintsVisible}
-            />
-          </div>
-        </div>
+          <HintDisplay
+            correctAnswerInstrument={correctAnswerInstrument}
+            hintsVisible={hintsVisible}
+          />
+          <div className={styles.app__hintsWrapper}></div>
+        </motion.div>
       )}
       {!gameStarted && gameOver && (
-        <div className={styles.app__startEndGameWrapper}>
+        <motion.div
+          className={styles.app__startEndGameWrapper}
+          key="gameover"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           <div className={styles.app__scoreAndRound}></div>
           <GameOver gameState={gameState} init={init} />
           <HintToggle toggleHints={toggleHints} />
           <div className={styles.app__hintsWrapper}></div>
-        </div>
+        </motion.div>
       )}
     </>
   );

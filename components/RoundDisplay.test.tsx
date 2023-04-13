@@ -8,7 +8,7 @@ test("the component renders with props", () => {
   const round = 1;
   const maxRounds = 3;
   render(<RoundDisplay round={round} maxRounds={maxRounds} />);
-  expect(screen.getByText("Round: 1/3")).toBeDefined();
+  expect(screen.getByText("1/3")).toBeDefined();
 });
 
 /* TEST IDEAS */

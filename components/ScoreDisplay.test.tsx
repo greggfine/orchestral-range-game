@@ -6,12 +6,12 @@ import ScoreDisplay from "./ScoreDisplay";
 
 test("displays the score value", () => {
   render(<ScoreDisplay score={1} />);
-  expect(screen.getByText("Score: 1")).toBeDefined();
+  expect(screen.getByText(1)).toBeDefined();
 });
 
 test("the score textContent contains a number", () => {
   render(<ScoreDisplay score={10} />);
-  const scoreDisplay = screen.getByText("Score: 10");
+  const scoreDisplay = screen.getByText(10);
   expect(scoreDisplay.textContent).toMatch(/\d+/);
 });
 
