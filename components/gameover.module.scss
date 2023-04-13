@@ -18,9 +18,12 @@
   }
 
   &__heading {
-    font-size: var(--font-size-heading);
+    font-size: calc(var(--font-size-heading) / 1.5);
     color: var(--primaryPurple);
     margin: 0;
+    @media (min-width: 500px) {
+      font-size: var(--font-size-heading);
+    }
   }
   &__icon {
     color: #000;
