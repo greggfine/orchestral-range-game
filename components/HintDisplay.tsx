@@ -9,20 +9,22 @@ type Props = {
 const Hints = ({ correctAnswerInstrument, hintsVisible }: Props) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
+      initial={{ opacity: 0, scale: 0.68 }}
       animate={
         hintsVisible
           ? { opacity: 1, scale: 1 }
           : { opacity: 0, display: "none" }
       }
-      transition={{ duration: 0.6, delay: 0.1 }}
+      transition={{ duration: 0.3, delay: 0 }}
       className={styles.hintDisplay}
     >
       <p className={styles.hintDisplay__instrumentFamily}>
         <span className={styles.hintDisplay__instrumentFamily__label}>
           Instrument Family:
         </span>{" "}
-        {correctAnswerInstrument.instrumentFamily}
+        <span className={styles.hintDisplay__instrumentFamily__category}>
+          {correctAnswerInstrument.instrumentFamily}
+        </span>
       </p>
       <p className={styles.hintDisplay__shortDescription}>
         {correctAnswerInstrument.shortDescription}

@@ -11,8 +11,14 @@
   line-height: 1.2;
   position: relative;
   z-index: 1;
+  box-shadow: inset 0px 0px 5px 0px black;
   &__instrumentFamily {
     text-align: center;
+    font-size: 1.1rem;
+    &__category {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     &__label {
       font-weight: 700;
     }

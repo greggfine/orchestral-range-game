@@ -68,8 +68,10 @@ input:checked + .slider:before {
 .label {
   display: inline-block;
   width: max-content;
-  color: var(--primaryBlack);
+  color: rgba(53, 53, 110, 0.6);
   vertical-align: bottom;
   margin-right: 12px;
   font-weight: 600;
+  position: relative;
+  bottom: 5px;
 }

@@ -10,25 +10,23 @@ type Props = {
 const RangeDisplay = ({ correctAnswerInstrument }: Props) => {
   return (
     <div className={styles.rangeDisplay}>
-      {/* <motion.img
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-        src="src/assets/images/ellipse.svg"
-        alt="ellipse"
-        className={styles.rangeDisplay__ellipse}
-      /> */}
-      <img
+      <motion.img
         src={IMAGE_BASE_PATH + correctAnswerInstrument.image}
         alt=""
         className={styles.rangeDisplay__image}
         style={{ width: "25%" }}
+        initial={{ x: -10 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.2 }}
       />
-      <div className={styles.rangeDisplay__text}>
+      <motion.div
+        className={styles.rangeDisplay__text}
+        initial={{ x: 10 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.2 }}
+      >
         {correctAnswerInstrument.range}
-      </div>
+      </motion.div>
     </div>
   );
 };
