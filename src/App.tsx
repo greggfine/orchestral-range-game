@@ -5,18 +5,18 @@ import { motion } from "framer-motion";
 import { Instrument } from "../types/types";
 import { fisherYatesShuffle, getRandomIndex } from "./utils";
 
-import AnswerChoices from "../components/AnswerChoices";
-import HintDisplay from "../components/HintDisplay";
+import AnswerChoices from "../components/AnswerOptions";
+import HintDisplay from "../components/Hint";
 import HintToggle from "../components/HintToggle";
-import RangeDisplay from "../components/RangeDisplay";
-import RightWrongDisplay from "../components/RightWrongDisplay";
-import RoundDisplay from "../components/RoundDisplay";
-import ScoreDisplay from "../components/ScoreDisplay";
-import StartGame from "../components/StartGame";
+import Range from "../components/Range";
+import AnswerFeedback from "../components/AnswerFeedback";
+import Round from "../components/Round";
+import Score from "../components/Score";
+import GameStart from "../components/GameStart";
 import GameOver from "../components/GameOver";
 
-const rightAnswer = new Audio("src/assets/audio/correctAnswer.mp3");
-const wrongAnswer = new Audio("src/assets/audio/wrongAnswer.mp3");
+const rightAnswer = new Audio("/src/assets/audio/correctAnswer.mp3");
+const wrongAnswer = new Audio("/src/assets/audio/wrongAnswer.mp3");
 
 const maxRounds = 2;
 const roundGap = 3000;
@@ -74,7 +74,7 @@ function App() {
         rightAnswer.play())
       : (setGameState({ ...gameState }),
         setIsCorrectAnswer(false),
-        (wrongAnswer.volume = volumeLevel * 3 ),
+        (wrongAnswer.volume = volumeLevel * 3),
         wrongAnswer.play());
 
     setRightWrongDisplayIsVisible(true);
@@ -144,7 +144,7 @@ function App() {
         >
           <div>
             <div className={styles.app__scoreAndRound}></div>
-            <StartGame setGameStarted={setGameStarted} />
+            <GameStart setGameStarted={setGameStarted} />
           </div>
           <HintToggle toggleHints={toggleHints} />
           <div className={styles.app__hintsWrapper}></div>
@@ -160,15 +160,15 @@ function App() {
         >
           <div className={styles.app__scoreAndRound}>
             <div className={styles.app__scoreAndRound__textWrapper}>
-              <ScoreDisplay score={gameState.score} />
+              <Score score={gameState.score} />
               {rightWrongDisplayIsVisible && (
-                <RightWrongDisplay isCorrectAnswer={isCorrectAnswer} />
+                <AnswerFeedback isCorrectAnswer={isCorrectAnswer} />
               )}
-              <RoundDisplay round={gameState.round} maxRounds={maxRounds} />
+              <Round round={gameState.round} maxRounds={maxRounds} />
             </div>
           </div>
           <div className={styles.app__flexContainer}>
-            <RangeDisplay correctAnswerInstrument={correctAnswerInstrument} />
+            <Range correctAnswerInstrument={correctAnswerInstrument} />
             <div className={styles.app__divider}></div>
             <AnswerChoices
               instruments={instruments}

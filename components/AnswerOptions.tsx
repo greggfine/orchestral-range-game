@@ -1,16 +1,16 @@
 import { answerChoicesProps } from "../types/types";
-import styles from "./answer-choices.module.scss";
-import Button from "../components/Button";
+import styles from "./answer-options.module.scss";
+import Button from "./Button";
 
 const MAX_INSTRUMENTS = 4;
 
-const AnswerChoices = ({
+const AnswerOptions = ({
   instruments,
   handleClick,
   btnsDisabled,
 }: answerChoicesProps) => {
   return (
-    <div className={styles.answerChoices}>
+    <div className={styles.answerOptions}>
       {instruments.map((instrument, idx) => {
         if (idx < MAX_INSTRUMENTS) {
           return (
@@ -27,4 +27,4 @@ const AnswerChoices = ({
   );
 };
 
-export default AnswerChoices;
+export default AnswerOptions;

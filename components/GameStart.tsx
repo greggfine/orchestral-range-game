@@ -1,25 +1,23 @@
-import styles from "./start-game.module.scss";
+import styles from "./game-start.module.scss";
 import btnStyles from "./button.module.scss";
-import scoreIcon from "../src/assets/images/score-black.svg";
-import conductor from "../src/assets/images/conductor.svg";
+import scoreIcon from "@src/assets/images/score-black.svg";
+import conductor from "@src/assets/images/conductor.svg";
 import { motion } from "framer-motion";
 const startGame = new Audio("src/assets/audio/startGame.mp3");
 type Props = {
   setGameStarted: (gameStarted: boolean) => void;
 };
-// const StartGame = ({ gameState, init }: Props) => {
-const StartGame = ({ setGameStarted }: Props) => {
+const GameStart = ({ setGameStarted }: Props) => {
   return (
-    <div className={styles.startGame}>
+    <div className={styles.gameStart}>
       <motion.img
         src={conductor}
         alt="orchestra conductor"
-        className={styles.startGame__icon}
+        className={styles.gameStart__icon}
         animate={{ rotateY: "190deg" }}
-        // transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         transition={{ type: "spring", stiffness: 320 }}
       />
-      <h1 className={styles.startGame__heading}>Orchestral Range Game</h1>
+      <h1 className={styles.gameStart__heading}>Orchestral Range Game</h1>
       <button
         className={btnStyles.button}
         onClick={() => {
@@ -34,4 +32,4 @@ const StartGame = ({ setGameStarted }: Props) => {
   );
 };
 
-export default StartGame;
+export default GameStart;

@@ -14,5 +14,5 @@ export type Instrument = {
 export type answerChoicesProps = {
   instruments: Instrument[];
   handleClick: handleClickFn;
-  btnsDisabled: boolean;
+  btnsDisabled?: boolean;
 };

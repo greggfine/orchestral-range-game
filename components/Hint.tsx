@@ -1,4 +1,4 @@
-import styles from "./hint-display.module.scss";
+import styles from "./hint.module.scss";
 import { Instrument } from "../types/types";
 import { motion } from "framer-motion";
 
@@ -6,7 +6,7 @@ type Props = {
   hintsVisible: boolean;
   correctAnswerInstrument: Instrument;
 };
-const Hints = ({ correctAnswerInstrument, hintsVisible }: Props) => {
+const Hint = ({ correctAnswerInstrument, hintsVisible }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.68 }}
@@ -16,21 +16,21 @@ const Hints = ({ correctAnswerInstrument, hintsVisible }: Props) => {
           : { opacity: 0, display: "none" }
       }
       transition={{ duration: 0.3, delay: 0 }}
-      className={styles.hintDisplay}
+      className={styles.hint}
     >
-      <p className={styles.hintDisplay__instrumentFamily}>
-        <span className={styles.hintDisplay__instrumentFamily__label}>
+      <p className={styles.hint__instrumentFamily}>
+        <span className={styles.hint__instrumentFamily__label}>
           Instrument Family:
         </span>{" "}
-        <span className={styles.hintDisplay__instrumentFamily__category}>
+        <span className={styles.hint__instrumentFamily__category}>
           {correctAnswerInstrument.instrumentFamily}
         </span>
       </p>
-      <p className={styles.hintDisplay__shortDescription}>
+      <p className={styles.hint__shortDescription}>
         {correctAnswerInstrument.shortDescription}
       </p>
     </motion.div>
   );
 };
 
-export default Hints;
+export default Hint;

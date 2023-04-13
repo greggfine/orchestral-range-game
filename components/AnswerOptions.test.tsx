@@ -4,7 +4,7 @@ import { describe, test, expect, vi } from "vitest";
 
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import AnswerChoices from "./AnswerChoices";
+import AnswerOptions from "./AnswerOptions";
 
 test("the component renders with props", () => {
   const instruments = [
@@ -12,7 +12,7 @@ test("the component renders with props", () => {
     { name: "harp", range: "c1-d4", id: 1 },
   ];
   const handleClick = vi.fn();
-  render(<AnswerChoices instruments={instruments} handleClick={handleClick} />);
+  render(<AnswerOptions instruments={instruments} handleClick={handleClick} />);
   expect(screen.getAllByRole("button")).toBeDefined();
 });
 
@@ -23,7 +23,7 @@ test("clicking a button fires the handleClick function", async () => {
     { name: "harp", range: "c1-d4", id: 1 },
   ];
   const handleClick = vi.fn();
-  render(<AnswerChoices instruments={instruments} handleClick={handleClick} />);
+  render(<AnswerOptions instruments={instruments} handleClick={handleClick} />);
   const buttons = screen.getAllByRole("button");
   await Promise.all(
     buttons.map(async (button) => {

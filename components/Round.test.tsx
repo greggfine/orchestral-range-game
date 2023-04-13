@@ -2,7 +2,7 @@ import React from "react";
 //https://codingpr.com/test-your-react-app-with-vitest-and-react-testing-library/
 import { describe, test, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import RoundDisplay from "./RoundDisplay";
+import RoundDisplay from "./Round";
 
 test("the component renders with props", () => {
   const round = 1;
