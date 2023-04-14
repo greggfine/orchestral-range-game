@@ -8,9 +8,9 @@ type ScoreProps = {
 
 const ScoreDisplay = ({ score }: ScoreProps) => {
   return (
-    <div className={styles.scoreDisplay}>
-      <img src={scoreIcon} alt="score" className={styles.scoreDisplay__icon} />
-      <span className={styles.scoreDisplay__text}>{score}</span>
+    <div className={styles.score}>
+      <img src={scoreIcon} alt="score" className={styles.score__icon} />
+      <span className={styles.score__text}>{score}</span>
     </div>
   );
 };

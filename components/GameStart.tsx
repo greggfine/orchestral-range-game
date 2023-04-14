@@ -1,6 +1,5 @@
 import styles from "./game-start.module.scss";
 import btnStyles from "./button.module.scss";
-import scoreIcon from "@src/assets/images/score-black.svg";
 import conductor from "@src/assets/images/conductor.svg";
 import { motion } from "framer-motion";
 const startGame = new Audio("src/assets/audio/startGame.mp3");

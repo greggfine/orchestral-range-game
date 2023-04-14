@@ -1,21 +1,16 @@
-.rangeDisplay {
+.range {
   text-align: center;
   position: relative;
-  margin-top: calc(var(--section-margin-top));
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 325px;
-  margin-left: auto;
-  margin-right: auto;
-  @media (min-width: 960px) {
-    max-width: 450px;
-  }
+  max-width: 20rem;
+  margin: var(--section-margin-top) auto 0;
   &__ellipse {
     visibility: hidden;
   }
   &__image {
-    width: 220px !important;
+    width: 220px;
     border-radius: 12px;
     border: 2px solid var(--accentYellow);
   }
@@ -23,37 +18,29 @@
     color: var(--primaryBlack);
     font-size: calc(var(--font-size-range) / 1.25);
     font-weight: 900;
-    // position: absolute;
-    // top: 80%;
-    // left: 52%;
-    // transform: translateX(-50%);
   }
 }
 @media (min-width: 500px) {
-  .rangeDisplay {
+  .range {
     &__ellipse {
       width: 20rem;
       visibility: visible;
     }
-    &__image {
-      width: 220px !important;
-      // top: 42%;
-    }
     &__text {
       font-size: var(--font-size-range);
-      // top: 75%;
     }
   }
 }
 
 @media (min-width: 960px) {
-  .rangeDisplay {
+  .range {
+    max-width: 450px;
     &__ellipse {
       width: 28rem;
     }
 
     &__image {
-      width: 300px !important;
+      width: 300px;
     }
   }
 }

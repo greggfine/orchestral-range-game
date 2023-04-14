@@ -11,11 +11,13 @@ const AnswerFeedback = ({ isCorrectAnswer }: answerFeedbackProps) => {
     <div className={styles.answerFeedback}>
       <img
         src={rightAnswer}
+        alt="right answer"
         style={isCorrectAnswer ? { display: "block" } : { display: "none" }}
         className={styles.answerFeedback__img}
       />
       <img
         src={wrongAnswer}
+        alt="wrong answer"
         style={isCorrectAnswer ? { display: "none" } : { display: "block" }}
         className={styles.answerFeedback__img}
       />

@@ -1,7 +1,7 @@
 import styles from "./button.module.scss";
 import { Instrument } from "../types/types";
 
-const Button = ({ name, range, id, handleClick, btnsDisabled }: Instrument) => {
+const Button = ({ name, handleClick, btnsDisabled }: Instrument) => {
   return (
     <button
       className={styles.button}

@@ -1,17 +1,17 @@
-.roundDisplay,
-.scoreDisplay {
+.round,
+.score {
   font-size: var(--font-size-nav);
   display: flex;
   &__text {
     margin-left: 8px;
   }
 }
-.scoreDisplay {
+.score {
   &__icon {
     width: 28px;
   }
 }
-.roundDisplay {
+.round {
   &__icon {
     width: 26px;
   }

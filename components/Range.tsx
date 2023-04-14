@@ -9,18 +9,17 @@ type Props = {
 
 const RangeDisplay = ({ correctAnswerInstrument }: Props) => {
   return (
-    <div className={styles.rangeDisplay}>
+    <div className={styles.range}>
       <motion.img
         src={IMAGE_BASE_PATH + correctAnswerInstrument.image}
-        alt=""
-        className={styles.rangeDisplay__image}
-        style={{ width: "25%" }}
+        alt="correct answer instrument's range"
+        className={styles.range__image}
         initial={{ x: -10 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.2 }}
       />
       <motion.div
-        className={styles.rangeDisplay__text}
+        className={styles.range__text}
         initial={{ x: 10 }}
         animate={{ x: 0 }}
         transition={{ duration: 0.2 }}

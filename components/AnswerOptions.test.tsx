@@ -17,7 +17,6 @@ test("the component renders with props", () => {
 });
 
 test("clicking a button fires the handleClick function", async () => {
-  userEvent.setup();
   const instruments = [
     { name: "flute", range: "c0-d3", id: 0 },
     { name: "harp", range: "c1-d4", id: 1 },

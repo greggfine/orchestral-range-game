@@ -6,13 +6,9 @@ type RoundDisplayProps = {
 };
 const RoundDisplay = ({ round, maxRounds }: RoundDisplayProps) => {
   return (
-    <div className={styles.roundDisplay}>
-      <img
-        src={roundsIcon}
-        alt="rounds"
-        className={styles.roundDisplay__icon}
-      />
-      <span className={styles.roundDisplay__text}>
+    <div className={styles.round}>
+      <img src={roundsIcon} alt="rounds" className={styles.round__icon} />
+      <span className={styles.round__text}>
         {round}/{maxRounds}
       </span>
     </div>

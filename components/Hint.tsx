@@ -18,17 +18,17 @@ const Hint = ({ correctAnswerInstrument, hintsVisible }: Props) => {
       transition={{ duration: 0.3, delay: 0 }}
       className={styles.hint}
     >
-      <p className={styles.hint__instrumentFamily}>
-        <span className={styles.hint__instrumentFamily__label}>
+      <div className={styles.hint__headingWrapper}>
+        <span className={styles.hint__headingWrapper__heading}>
           Instrument Family:
         </span>{" "}
-        <span className={styles.hint__instrumentFamily__category}>
+        <span className={styles.hint__headingWrapper__subheading}>
           {correctAnswerInstrument.instrumentFamily}
         </span>
-      </p>
-      <p className={styles.hint__shortDescription}>
+      </div>
+      <div className={styles.hint__description}>
         {correctAnswerInstrument.shortDescription}
-      </p>
+      </div>
     </motion.div>
   );
 };

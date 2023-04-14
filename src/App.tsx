@@ -1,26 +1,25 @@
 import { useState, useEffect } from "react";
-import styles from "./app.module.scss";
 import { motion } from "framer-motion";
+import styles from "./app.module.scss";
 
 import { Instrument } from "../types/types";
 import { fisherYatesShuffle, getRandomIndex } from "./utils";
 
-import AnswerChoices from "../components/AnswerOptions";
+import AnswerFeedback from "../components/AnswerFeedback";
+import AnswerOptions from "../components/AnswerOptions";
+import GameOver from "../components/GameOver";
+import GameStart from "../components/GameStart";
 import HintDisplay from "../components/Hint";
 import HintToggle from "../components/HintToggle";
 import Range from "../components/Range";
-import AnswerFeedback from "../components/AnswerFeedback";
 import Round from "../components/Round";
 import Score from "../components/Score";
-import GameStart from "../components/GameStart";
-import GameOver from "../components/GameOver";
-
-const rightAnswer = new Audio("/src/assets/audio/correctAnswer.mp3");
-const wrongAnswer = new Audio("/src/assets/audio/wrongAnswer.mp3");
 
 const maxRounds = 2;
 const roundGap = 3000;
 const volumeLevel = 0.1;
+const rightAnswer = new Audio("/src/assets/audio/correctAnswer.mp3");
+const wrongAnswer = new Audio("/src/assets/audio/wrongAnswer.mp3");
 
 function App() {
   const [btnsDisabled, setBtnsDisabled] = useState(false);
@@ -170,7 +169,7 @@ function App() {
           <div className={styles.app__flexContainer}>
             <Range correctAnswerInstrument={correctAnswerInstrument} />
             <div className={styles.app__divider}></div>
-            <AnswerChoices
+            <AnswerOptions
               instruments={instruments}
               handleClick={handleClick}
               btnsDisabled={btnsDisabled}
