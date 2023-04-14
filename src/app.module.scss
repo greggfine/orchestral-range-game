@@ -38,6 +38,27 @@
     background-color: var(--overlayPurple);
     z-index: 0;
   }
+  &__instructionsBtn {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    width: 160px;
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &__hover {
+      background-color: #3e8e41;
+    }
+  }
   &__scoreAndRound {
     background-color: var(--primaryPurple);
     padding: 12px 32px;

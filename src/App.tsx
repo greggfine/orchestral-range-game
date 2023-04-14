@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "./app.module.scss";
 
 import { Instrument } from "../types/types";
@@ -11,6 +11,7 @@ import GameOver from "../components/GameOver";
 import GameStart from "../components/GameStart";
 import HintDisplay from "../components/Hint";
 import HintToggle from "../components/HintToggle";
+import Instructions from "../components/Instructions";
 import Range from "../components/Range";
 import Round from "../components/Round";
 import Score from "../components/Score";
@@ -44,6 +45,15 @@ function App() {
 
   const toggleHints = () => {
     setHintsVisible(true);
+  };
+  const [showInstructions, setShowInstructions] = useState(false);
+
+  const handleInstructionsClick = () => {
+    setShowInstructions(true);
+  };
+
+  const handleCloseInstructions = () => {
+    setShowInstructions(false);
   };
 
   const init = () => {
@@ -145,6 +155,17 @@ function App() {
             <div className={styles.app__scoreAndRound}></div>
             <GameStart setGameStarted={setGameStarted} />
           </div>
+          <button
+            onClick={handleInstructionsClick}
+            className={styles.app__instructionsBtn}
+          >
+            Instructions
+          </button>
+          <AnimatePresence key="modal">
+            {showInstructions && (
+              <Instructions onClose={handleCloseInstructions} />
+            )}
+          </AnimatePresence>
           <HintToggle toggleHints={toggleHints} />
           <div className={styles.app__hintsWrapper}></div>
         </motion.div>
