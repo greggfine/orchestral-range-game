@@ -1,5 +1,5 @@
 import styles from "./round-score.module.scss";
-import roundsIcon from "@src/assets/images/rounds.svg";
+import roundsIcon from "/images/rounds.svg";
 type RoundDisplayProps = {
   round: number;
   maxRounds: number;

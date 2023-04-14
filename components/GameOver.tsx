@@ -1,6 +1,6 @@
 import styles from "./game-over.module.scss";
 import btnStyles from "./button.module.scss";
-import scoreIcon from "@src/assets/images/score-black.svg";
+import scoreIcon from "/images/score-black.svg";
 import { motion } from "framer-motion";
 type Props = {
   gameState: { score: number; round: number };

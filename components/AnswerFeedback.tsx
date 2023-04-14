@@ -1,6 +1,6 @@
 import styles from "./answer-feedback.module.scss";
-import rightAnswer from "@src/assets/images/right-answer.svg";
-import wrongAnswer from "@src/assets/images/wrong-answer.svg";
+import rightAnswer from "/images/right-answer.svg";
+import wrongAnswer from "/images/wrong-answer.svg";
 
 type answerFeedbackProps = {
   isCorrectAnswer: boolean;

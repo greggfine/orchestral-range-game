@@ -19,8 +19,8 @@ import Score from "../components/Score";
 const maxRounds = 2;
 const roundGap = 3000;
 const volumeLevel = 0.1;
-const rightAnswer = new Audio("/src/assets/audio/correctAnswer.mp3");
-const wrongAnswer = new Audio("/src/assets/audio/wrongAnswer.mp3");
+const rightAnswer = new Audio("/audio/correctAnswer.mp3");
+const wrongAnswer = new Audio("/audio/wrongAnswer.mp3");
 
 function App() {
   const [btnsDisabled, setBtnsDisabled] = useState(false);

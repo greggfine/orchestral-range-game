@@ -1,6 +1,6 @@
 //@ts-nocheck
 import styles from "./round-score.module.scss";
-import scoreIcon from "@src/assets/images/score.svg";
+import scoreIcon from "/images/score.svg";
 
 type ScoreProps = {
   score: number;

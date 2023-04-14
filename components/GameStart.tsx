@@ -1,8 +1,8 @@
 import styles from "./game-start.module.scss";
 import btnStyles from "./button.module.scss";
-import conductor from "@src/assets/images/conductor.svg";
+import conductor from "/images/conductor.svg";
 import { motion } from "framer-motion";
-const startGame = new Audio("src/assets/audio/startGame.mp3");
+const startGame = new Audio("/audio/startGame.mp3");
 type Props = {
   setGameStarted: (gameStarted: boolean) => void;
 };
