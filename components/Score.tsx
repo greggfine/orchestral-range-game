@@ -1,4 +1,3 @@
-//@ts-nocheck
 import styles from "./round-score.module.scss";
 import scoreIcon from "/images/score.svg";
 

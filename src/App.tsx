@@ -1,20 +1,11 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import styles from "./app.module.scss";
 
 import { Instrument } from "../types/types";
-import { fisherYatesShuffle, getRandomIndex } from "./utils";
+import { getRandomIndex, randomizeAnswers } from "./utils";
 
-import AnswerFeedback from "../components/AnswerFeedback";
-import AnswerOptions from "../components/AnswerOptions";
-import GameOver from "../components/GameOver";
-import GameStart from "../components/GameStart";
-import HintDisplay from "../components/Hint";
-import HintToggle from "../components/HintToggle";
-import Instructions from "../components/Instructions";
-import Range from "../components/Range";
-import Round from "../components/Round";
-import Score from "../components/Score";
+import GamePlayScreen from "../components/GamePlayScreen";
+import GameStartScreen from "../components/GameStartScreen";
+import GameOverScreen from "../components/GameOverScreen";
 
 const maxRounds = 2;
 const roundGap = 3000;
@@ -23,38 +14,56 @@ const rightAnswer = new Audio("/audio/correctAnswer.mp3");
 const wrongAnswer = new Audio("/audio/wrongAnswer.mp3");
 
 function App() {
+  useEffect(() => {
+    const fetchInstrument = async () => {
+      const response = await fetch("/instruments.json");
+      const instruments = await response.json();
+      setInitialinstruments(instruments);
+      setInstruments(instruments);
+    };
+    fetchInstrument();
+  }, []);
+  const initialCorrectAnswerInstrument = { name: "", range: "", id: 0 };
   const [btnsDisabled, setBtnsDisabled] = useState(false);
+  const [correctAnswerInstrument, setCorrectAnswerInstrument] =
+    useState<Instrument>(initialCorrectAnswerInstrument);
+  const [families, setFamilies] = useState<string[]>([]);
+  const [filteredInstruments, setFilteredInstruments] = useState<Instrument[]>(
+    []
+  );
+  const [gameOver, setGameOver] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
+  const [gameState, setGameState] = useState({ score: 0, round: 1 });
   const [hintsVisible, setHintsVisible] = useState(false);
   const [initialInstruments, setInitialinstruments] = useState<Instrument[]>(
     []
   );
   const [instruments, setInstruments] = useState<Instrument[]>([]);
-  const [gameStarted, setGameStarted] = useState(false);
-  const [gameOver, setGameOver] = useState(false);
-  const [correctAnswerInstrument, setCorrectAnswerInstrument] =
-    useState<Instrument>({
-      name: "",
-      range: "",
-      id: 0,
-    });
-
-  const [gameState, setGameState] = useState({ score: 0, round: 1 });
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
   const [rightWrongDisplayIsVisible, setRightWrongDisplayIsVisible] =
     useState(false);
-
-  const toggleHints = () => {
-    setHintsVisible(true);
-  };
   const [showInstructions, setShowInstructions] = useState(false);
 
-  const handleInstructionsClick = () => {
-    setShowInstructions(true);
-  };
+  const handleFamilySelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const family = e.target.value;
 
-  const handleCloseInstructions = () => {
-    setShowInstructions(false);
+    setFamilies((prevState) => [...prevState, family]);
   };
+  useEffect(() => {
+    const filteredInstruments = initialInstruments.filter((instrument) => {
+      if (!instrument.instrumentFamily) {
+        return;
+      } else {
+        return families.includes(instrument.instrumentFamily);
+      }
+    });
+    setFilteredInstruments(filteredInstruments);
+    generateAnswerAndRandomizedInstruments(filteredInstruments);
+  }, [families]);
+
+  const handleInstructionsClick = () => setShowInstructions(true);
+  const handleCloseInstructions = () => setShowInstructions(false);
+  const toggleHints = () => setHintsVisible(true);
 
   const init = () => {
     setBtnsDisabled(false);
@@ -63,11 +72,7 @@ function App() {
     setGameStarted(true);
     setRightWrongDisplayIsVisible(false);
     setInstruments([]);
-    setCorrectAnswerInstrument({
-      name: "",
-      range: "",
-      id: 0,
-    });
+    setCorrectAnswerInstrument(initialCorrectAnswerInstrument);
     generateAnswerAndRandomizedInstruments(initialInstruments);
   };
 
@@ -94,7 +99,11 @@ function App() {
         });
         setBtnsDisabled(false);
         setRightWrongDisplayIsVisible(false);
-        generateAnswerAndRandomizedInstruments(initialInstruments);
+        if (filteredInstruments.length > 0) {
+          generateAnswerAndRandomizedInstruments(filteredInstruments);
+        } else {
+          generateAnswerAndRandomizedInstruments(initialInstruments);
+        }
       }, roundGap);
     } else {
       setTimeout(() => {
@@ -104,118 +113,55 @@ function App() {
       }, roundGap);
     }
   };
-  const randomizeAnswers = (
-    instruments: Instrument[],
-    correctAnswerInstrument: Instrument
-  ) => {
-    let randomizedInstruments: Instrument[] = [];
-    let i = 0;
-    while (randomizedInstruments.length < 3) {
-      let randomInst = instruments[getRandomIndex(instruments)];
-      if (
-        !randomizedInstruments.includes(randomInst) &&
-        randomInst !== correctAnswerInstrument
-      ) {
-        randomizedInstruments.push(randomInst);
-      }
-      i++;
-    }
 
-    setCorrectAnswerInstrument(correctAnswerInstrument);
-
-    randomizedInstruments = fisherYatesShuffle([
-      ...randomizedInstruments,
-      correctAnswerInstrument,
-    ]);
-    setInstruments(randomizedInstruments);
-  };
-  useEffect(() => {
-    const fetchInstrument = async () => {
-      const response = await fetch("/instruments.json");
-      const instruments = await response.json();
-      setInitialinstruments(instruments);
-      generateAnswerAndRandomizedInstruments(instruments);
-    };
-    fetchInstrument();
-  }, []);
   const generateAnswerAndRandomizedInstruments = (
     instruments: Instrument[]
   ) => {
     const correctAnswerInstrument = instruments[getRandomIndex(instruments)];
-    randomizeAnswers(instruments, correctAnswerInstrument);
+    randomizeAnswers(
+      instruments,
+      correctAnswerInstrument,
+      setCorrectAnswerInstrument,
+      setInstruments
+    );
   };
   return (
     <>
       {!gameStarted && !gameOver && (
-        <motion.div
-          key="gamestarted"
-          className={styles.app__startEndGameWrapper}
-        >
-          <div>
-            <div className={styles.app__scoreAndRound}></div>
-            <GameStart setGameStarted={setGameStarted} />
-          </div>
-          <button
-            onClick={handleInstructionsClick}
-            className={styles.app__instructionsBtn}
-          >
-            Instructions
-          </button>
-          <AnimatePresence key="modal">
-            {showInstructions && (
-              <Instructions onClose={handleCloseInstructions} />
-            )}
-          </AnimatePresence>
-          <HintToggle toggleHints={toggleHints} />
-          <div className={styles.app__hintsWrapper}></div>
-        </motion.div>
+        <GameStartScreen
+          generateAnswerAndRandomizedInstruments={
+            generateAnswerAndRandomizedInstruments
+          }
+          instruments={instruments}
+          handleCloseInstructions={handleCloseInstructions}
+          handleFamilySelect={handleFamilySelect}
+          handleInstructionsClick={handleInstructionsClick}
+          initialInstruments={initialInstruments}
+          setGameStarted={setGameStarted}
+          showInstructions={showInstructions}
+          toggleHints={toggleHints}
+        />
       )}
       {gameStarted && !gameOver && (
-        <motion.div
-          className={styles.app}
-          key="gameplay"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <div className={styles.app__scoreAndRound}>
-            <div className={styles.app__scoreAndRound__textWrapper}>
-              <Score score={gameState.score} />
-              {rightWrongDisplayIsVisible && (
-                <AnswerFeedback isCorrectAnswer={isCorrectAnswer} />
-              )}
-              <Round round={gameState.round} maxRounds={maxRounds} />
-            </div>
-          </div>
-          <div className={styles.app__flexContainer}>
-            <Range correctAnswerInstrument={correctAnswerInstrument} />
-            <div className={styles.app__divider}></div>
-            <AnswerOptions
-              instruments={instruments}
-              handleClick={handleClick}
-              btnsDisabled={btnsDisabled}
-            />
-          </div>
-          <HintDisplay
-            correctAnswerInstrument={correctAnswerInstrument}
-            hintsVisible={hintsVisible}
-          />
-          <div className={styles.app__hintsWrapper}></div>
-        </motion.div>
+        <GamePlayScreen
+          btnsDisabled={btnsDisabled}
+          correctAnswerInstrument={correctAnswerInstrument}
+          families={families}
+          gameState={gameState}
+          handleClick={handleClick}
+          hintsVisible={hintsVisible}
+          instruments={instruments}
+          isCorrectAnswer={isCorrectAnswer}
+          maxRounds={maxRounds}
+          rightWrongDisplayIsVisible={rightWrongDisplayIsVisible}
+        />
       )}
       {!gameStarted && gameOver && (
-        <motion.div
-          className={styles.app__startEndGameWrapper}
-          key="gameover"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <div className={styles.app__scoreAndRound}></div>
-          <GameOver gameState={gameState} init={init} />
-          <HintToggle toggleHints={toggleHints} />
-          <div className={styles.app__hintsWrapper}></div>
-        </motion.div>
+        <GameOverScreen
+          gameState={gameState}
+          init={init}
+          toggleHints={toggleHints}
+        />
       )}
     </>
   );

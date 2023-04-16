@@ -1,7 +1,7 @@
 .hint {
   padding: 16px 32px;
   max-width: 70%;
-  margin: var(--section-margin-top) auto;
+  margin: var(--section-margin) auto;
   color: var(--primaryBlack);
   background-color: #fff;
   border-radius: 8px;
@@ -21,6 +21,6 @@
     }
   }
   &__description {
-    margin-top: calc(var(--section-margin-top) / 4);
+    margin-top: calc(var(--section-margin) / 4);
   }
 }

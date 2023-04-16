@@ -26,7 +26,6 @@ const Instructions = ({ onClose }: Props) => {
         animate="animate"
         initial="initial"
         exit="exit"
-        // transition={{ duration: 0.4 }}
         variants={variants}
       >
         <h2 className={styles.instructions__title}>Instructions</h2>

@@ -2,12 +2,10 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  text-align: center;
   &__divider {
-    margin-top: var(--section-margin-top);
+    margin-top: var(--section-margin);
     border: 0.1px solid rgba(0, 0, 0, 0.2);
-  }
-  &__flexContainer {
-    // flex-grow: 1;
   }
   &__heading {
     margin-top: 32px;
@@ -16,17 +14,13 @@
     color: var(--primaryPurple);
   }
   &__hintsWrapper {
-    margin-top: var(--section-margin-top);
+    margin-top: var(--section-margin);
     background-image: url("/images/larisa-birta-slbOcNlWNHA-unsplash_reduced.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    min-height: 200px;
+    min-height: 20vh;
     flex-grow: 1;
-
-    @media (min-width: 650px) {
-      background-position: 0 -100px;
-    }
   }
   &__hintsWrapper::before {
     content: "";
@@ -39,9 +33,9 @@
     z-index: 0;
   }
   &__instructionsBtn {
-    background-color: #4caf50;
-    border: none;
-    color: white;
+    background-color: var(--bgGrey);
+    border: 1px solid var(--primaryPurple);
+    color: var(--primaryPurple);
     padding: 12px 24px;
     text-align: center;
     text-decoration: none;
@@ -49,20 +43,17 @@
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
     width: 160px;
-    margin-top: 16px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 16px auto 0;
 
-    &__hover {
-      background-color: #3e8e41;
+    &:hover {
+      background-color: var(--accentYellow);
     }
   }
   &__scoreAndRound {
     background-color: var(--primaryPurple);
     padding: 12px 32px;
-    height: 28px;
     &__textWrapper {
       display: flex;
       justify-content: space-between;
@@ -70,16 +61,24 @@
       max-width: 90%;
       margin-left: auto;
       margin-right: auto;
+    }
+  }
+}
 
-      @media (min-width: 960px) {
+@media (min-width: 650px) {
+  .app {
+    &__hintsWrapper {
+      background-position: 0 -100px;
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  .app {
+    &__scoreAndRound {
+      &__textWrapper {
         max-width: 660px;
       }
     }
-  }
-  &__startEndGameWrapper {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
   }
 }

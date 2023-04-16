@@ -15,3 +15,22 @@ export const fisherYatesShuffle = (randomizedInstrument: Instrument[]) => {
 export const getRandomIndex = (array: any[]): number => {
   return Math.floor(Math.random() * array.length);
 };
+export const randomizeAnswers = (
+  instruments: Instrument[],
+  correctAnswerInstrument: Instrument,
+  setCorrectAnswerInstrument: (instrument: Instrument) => void,
+  setInstruments: (instruments: Instrument[]) => void
+) => {
+  const otherInstruments = instruments
+    .filter((inst) => inst !== correctAnswerInstrument)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3);
+
+  const randomizedInstruments = [
+    ...otherInstruments,
+    correctAnswerInstrument,
+  ].sort(() => Math.random() - 0.5);
+
+  setCorrectAnswerInstrument(correctAnswerInstrument);
+  setInstruments(randomizedInstruments);
+};

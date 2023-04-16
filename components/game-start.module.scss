@@ -1,27 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Changa+One&display=swap");
 .gameStart {
-  text-align: center;
   &__heading {
     color: var(--primaryPurple);
     font-size: calc(var(--font-size-heading) / 1.5);
     text-align: center;
     line-height: 1;
-    margin-top: 0;
-    margin-bottom: var(--section-margin-top);
-    font-family: "Changa One", cursive;
+    font-family: "Changa One", sans-serif;
     max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto var(--section-margin);
     background-clip: text;
     -webkit-background-clip: text;
     background-image: linear-gradient(60deg, var(--primaryPurple), blue);
     color: transparent;
-
-    @media (min-width: 500px) {
-      font-size: var(--font-size-heading);
-    }
   }
   &__icon {
-    margin-top: var(--section-margin-top);
+    margin-top: var(--section-margin);
+  }
+}
+@media (min-width: 500px) {
+  .gameStart {
+    &__heading {
+      font-size: var(--font-size-heading);
+      max-width: 400px;
+    }
+  }
+}
+@media (min-width: 900px) {
+  .gameStart {
+    &__heading {
+      max-width: 600px;
+    }
   }
 }

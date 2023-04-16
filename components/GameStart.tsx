@@ -3,10 +3,17 @@ import btnStyles from "./button.module.scss";
 import conductor from "/images/conductor.svg";
 import { motion } from "framer-motion";
 const startGame = new Audio("/audio/startGame.mp3");
+import { Instrument } from "types/types";
 type Props = {
   setGameStarted: (gameStarted: boolean) => void;
+  instruments: Instrument[];
+  generateAnswerAndRandomizedInstruments: (instruments: Instrument[]) => void;
 };
-const GameStart = ({ setGameStarted }: Props) => {
+const GameStart = ({
+  instruments,
+  setGameStarted,
+  generateAnswerAndRandomizedInstruments,
+}: Props) => {
   return (
     <div className={styles.gameStart}>
       <motion.img
@@ -23,6 +30,7 @@ const GameStart = ({ setGameStarted }: Props) => {
           startGame.volume = 0.5;
           startGame.play();
           setGameStarted(true);
+          generateAnswerAndRandomizedInstruments(instruments);
         }}
       >
         Start Game

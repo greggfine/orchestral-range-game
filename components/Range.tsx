@@ -7,7 +7,7 @@ type Props = {
   correctAnswerInstrument: Instrument;
 };
 
-const RangeDisplay = ({ correctAnswerInstrument }: Props) => {
+const Range = ({ correctAnswerInstrument }: Props) => {
   return (
     <div className={styles.range}>
       <motion.img
@@ -30,4 +30,4 @@ const RangeDisplay = ({ correctAnswerInstrument }: Props) => {
   );
 };
 
-export default RangeDisplay;
+export default Range;
