@@ -1,7 +1,7 @@
 import styles from "../src/app.module.scss";
 import { motion } from "framer-motion";
 import AnswerOptions from "./AnswerOptions";
-import HintDisplay from "./Hint";
+import Hint from "./Hint";
 import Range from "./Range";
 import Round from "./Round";
 import Score from "./Score";
@@ -47,7 +47,7 @@ const GamePlayScreen = ({
           <Round round={gameState.round} maxRounds={maxRounds} />
         </div>
       </div>
-      <div className={styles.app__flexContainer}>
+      <div>
         <Range correctAnswerInstrument={correctAnswerInstrument} />
         <div className={styles.app__divider}></div>
         <AnswerOptions
@@ -56,11 +56,11 @@ const GamePlayScreen = ({
           btnsDisabled={btnsDisabled}
         />
       </div>
-      <HintDisplay
+      <Hint
         correctAnswerInstrument={correctAnswerInstrument}
         hintsVisible={hintsVisible}
       />
-      <div className={styles.app__hintsWrapper}></div>
+      {/* <div className={styles.app__hintsWrapper}></div> */}
     </motion.div>
   );
 };

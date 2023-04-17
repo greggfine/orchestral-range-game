@@ -2,9 +2,18 @@ import styles from "./family-select.module.scss";
 import { Instrument } from "types/types";
 type Props = {
   initialInstruments: Instrument[];
-  handleFamilySelect: () => void;
+  isChecked: boolean;
+  handleFamilySelect: (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => void;
+  checkedCategories: boolean[];
 };
-const FamilySelect = ({ initialInstruments, handleFamilySelect }: Props) => {
+const FamilySelect = ({
+  checkedCategories,
+  initialInstruments,
+  handleFamilySelect,
+}: Props) => {
   const families: Set<string> = new Set();
   initialInstruments.forEach((instrument) => {
     if (!instrument.family) {
@@ -16,7 +25,7 @@ const FamilySelect = ({ initialInstruments, handleFamilySelect }: Props) => {
 
   return (
     <div className={styles.familySelect}>
-      {Array.from(families).map((family) => {
+      {Array.from(families).map((family, index) => {
         return (
           <div key={family}>
             <label htmlFor={family}>{family}</label>
@@ -24,7 +33,8 @@ const FamilySelect = ({ initialInstruments, handleFamilySelect }: Props) => {
               id={family}
               type="checkbox"
               value={family}
-              onChange={handleFamilySelect}
+              onChange={(e) => handleFamilySelect(e, index)}
+              checked={checkedCategories[index]}
             />
           </div>
         );

@@ -2,6 +2,7 @@
   text-align: center;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   max-width: 20rem;
@@ -18,6 +19,7 @@
     color: var(--primaryBlack);
     font-size: calc(var(--font-size-range) / 1.25);
     font-weight: 900;
+    margin-top: calc(var(--section-margin) / 2);
   }
 }
 @media (min-width: 500px) {

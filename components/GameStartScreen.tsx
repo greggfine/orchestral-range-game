@@ -15,6 +15,7 @@ const GameStartScreen = ({
   initialInstruments,
   setGameStarted,
   toggleHints,
+  checkedCategories,
 }) => {
   return (
     <motion.div key="gamestarted" className={styles.app}>
@@ -39,6 +40,7 @@ const GameStartScreen = ({
       <FamilySelect
         initialInstruments={initialInstruments}
         handleFamilySelect={handleFamilySelect}
+        checkedCategories={checkedCategories}
       />
       <div className={styles.app__hintsWrapper}></div>
     </motion.div>

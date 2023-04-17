@@ -1,6 +1,7 @@
 import { Instrument } from "../types/types";
 import styles from "./answer-options.module.scss";
 import Button from "./Button";
+import { motion } from "framer-motion";
 
 const MAX_INSTRUMENTS = 4;
 
@@ -10,22 +11,40 @@ type Props = {
   btnsDisabled?: boolean;
 };
 
+const containerVariants = {
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+  hidden: {
+    opacity: 0.8,
+  },
+};
+
 const AnswerOptions = ({ instruments, handleClick, btnsDisabled }: Props) => {
   return (
-    <div className={styles.answerOptions}>
+    <motion.div
+      className={styles.answerOptions}
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      key={instruments[0].id}
+    >
       {instruments.map((instrument, idx) => {
         if (idx < MAX_INSTRUMENTS) {
           return (
             <Button
               {...instrument}
-              key={instrument.id}
               handleClick={handleClick}
               btnsDisabled={btnsDisabled}
+              key={instrument.id}
             />
           );
         }
       })}
-    </div>
+    </motion.div>
   );
 };
 

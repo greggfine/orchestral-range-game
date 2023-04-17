@@ -44,10 +44,28 @@ function App() {
     useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
 
-  const handleFamilySelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const family = e.target.value;
+  const [checkedCategories, setCheckedCategories] = useState(
+    families.map(() => {
+      console.log(families);
+      return false;
+    })
+  );
 
-    setFamilies((prevState) => [...prevState, family]);
+  const handleFamilySelect = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    index: number
+  ) => {
+    const family = e.target.value;
+    if (e.target.checked) {
+      if (!families.includes(family)) {
+        setFamilies((prevState) => [...prevState, family]);
+      }
+    } else {
+      const filteredFamilies = families.filter((currFamily) => {
+        return family !== currFamily;
+      });
+      setFamilies([...filteredFamilies]);
+    }
   };
   useEffect(() => {
     const filteredInstruments = initialInstruments.filter((instrument) => {
@@ -128,19 +146,23 @@ function App() {
   return (
     <>
       {!gameStarted && !gameOver && (
-        <GameStartScreen
-          generateAnswerAndRandomizedInstruments={
-            generateAnswerAndRandomizedInstruments
-          }
-          instruments={instruments}
-          handleCloseInstructions={handleCloseInstructions}
-          handleFamilySelect={handleFamilySelect}
-          handleInstructionsClick={handleInstructionsClick}
-          initialInstruments={initialInstruments}
-          setGameStarted={setGameStarted}
-          showInstructions={showInstructions}
-          toggleHints={toggleHints}
-        />
+        <>
+          <h1>{JSON.stringify(checkedCategories)}</h1>
+          <GameStartScreen
+            generateAnswerAndRandomizedInstruments={
+              generateAnswerAndRandomizedInstruments
+            }
+            instruments={instruments}
+            handleCloseInstructions={handleCloseInstructions}
+            handleFamilySelect={handleFamilySelect}
+            handleInstructionsClick={handleInstructionsClick}
+            initialInstruments={initialInstruments}
+            setGameStarted={setGameStarted}
+            showInstructions={showInstructions}
+            toggleHints={toggleHints}
+            checkedCategories={checkedCategories}
+          />
+        </>
       )}
       {gameStarted && !gameOver && (
         <GamePlayScreen
