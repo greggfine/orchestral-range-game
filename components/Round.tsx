@@ -1,10 +1,10 @@
 import styles from "./round-score.module.scss";
 import roundsIcon from "/images/rounds.svg";
-type RoundDisplayProps = {
+type Props = {
   round: number;
   maxRounds: number;
 };
-const RoundDisplay = ({ round, maxRounds }: RoundDisplayProps) => {
+const RoundDisplay = ({ round, maxRounds }: Props) => {
   return (
     <div className={styles.round}>
       <img src={roundsIcon} alt="rounds" className={styles.round__icon} />

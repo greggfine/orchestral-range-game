@@ -1,14 +1,16 @@
-import { answerChoicesProps } from "../types/types";
+import { Instrument } from "../types/types";
 import styles from "./answer-options.module.scss";
 import Button from "./Button";
 
 const MAX_INSTRUMENTS = 4;
 
-const AnswerOptions = ({
-  instruments,
-  handleClick,
-  btnsDisabled,
-}: answerChoicesProps) => {
+type Props = {
+  instruments: Instrument[];
+  handleClick: (name: string) => void;
+  btnsDisabled?: boolean;
+};
+
+const AnswerOptions = ({ instruments, handleClick, btnsDisabled }: Props) => {
   return (
     <div className={styles.answerOptions}>
       {instruments.map((instrument, idx) => {

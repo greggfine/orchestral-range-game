@@ -13,7 +13,7 @@ const variants = {
     scale: 0.5,
     easing: "easeOut",
     transition: {
-      duration: 1,
+      duration: 0.5,
     },
   },
 };

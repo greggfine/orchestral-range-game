@@ -1,11 +1,11 @@
 import styles from "./round-score.module.scss";
 import scoreIcon from "/images/score.svg";
 
-type ScoreProps = {
+type Props = {
   score: number;
 };
 
-const ScoreDisplay = ({ score }: ScoreProps) => {
+const ScoreDisplay = ({ score }: Props) => {
   return (
     <div className={styles.score}>
       <img src={scoreIcon} alt="score" className={styles.score__icon} />

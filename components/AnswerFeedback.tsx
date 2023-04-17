@@ -2,11 +2,11 @@ import styles from "./answer-feedback.module.scss";
 import rightAnswer from "/images/right-answer.svg";
 import wrongAnswer from "/images/wrong-answer.svg";
 
-type answerFeedbackProps = {
+type Props = {
   isCorrectAnswer: boolean;
 };
 
-const AnswerFeedback = ({ isCorrectAnswer }: answerFeedbackProps) => {
+const AnswerFeedback = ({ isCorrectAnswer }: Props) => {
   return (
     <div className={styles.answerFeedback}>
       <img

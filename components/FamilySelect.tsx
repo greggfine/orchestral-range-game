@@ -1,13 +1,10 @@
 import styles from "./family-select.module.scss";
 import { Instrument } from "types/types";
-type familySelectProps = {
+type Props = {
   initialInstruments: Instrument[];
   handleFamilySelect: () => void;
 };
-const FamilySelect = ({
-  initialInstruments,
-  handleFamilySelect,
-}: familySelectProps) => {
+const FamilySelect = ({ initialInstruments, handleFamilySelect }: Props) => {
   const families: Set<string> = new Set();
   initialInstruments.forEach((instrument) => {
     if (!instrument.family) {
