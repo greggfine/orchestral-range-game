@@ -7,7 +7,7 @@ export type Instrument = {
   image?: string;
   handleClick?: handleClickFn;
   shortDescription?: string;
-  instrumentFamily?: string;
+  family?: string;
   btnsDisabled?: boolean;
 };
 

@@ -5,7 +5,7 @@
     "id": 1,
     "image": "altofluterang.png",
     "shortDescription": "A type of flute pitched in the key of G",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Alto Saxophone",
@@ -13,7 +13,7 @@
     "id": 2,
     "image": "piccolo.png",
     "shortDescription": "A member of the saxophone family of woodwind instruments",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Baritone Saxophone",
@@ -21,7 +21,7 @@
     "id": 3,
     "image": "oboe.png",
     "shortDescription": "A member of the saxophone family of woodwind instruments",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Bass Clarinet",
@@ -29,7 +29,7 @@
     "id": 4,
     "image": "bassclarinetrang.png",
     "shortDescription": "A member of the clarinet family of woodwind instruments",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Bass Clarinet in Bb",
@@ -37,7 +37,7 @@
     "id": 5,
     "image": "oboe.png",
     "shortDescription": "A member of the clarinet family of woodwind instruments",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Bass Flute",
@@ -45,7 +45,7 @@
     "id": 6,
     "image": "piccolo.png",
     "shortDescription": "A type of flute pitched one octave below the concert flute",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Bass Saxophone",
@@ -53,7 +53,7 @@
     "id": 7,
     "image": "oboe.png",
     "shortDescription": "A member of the saxophone family of woodwind instruments",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Bass Trombone",
@@ -61,7 +61,7 @@
     "id": 8,
     "image": "piccolo.png",
     "shortDescription": "A member of the trombone family of brass instruments",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Bass Trombone with F Attachment",
@@ -69,7 +69,7 @@
     "id": 9,
     "image": "oboe.png",
     "shortDescription": "A type of bass trombone with an additional valve",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Bass Trumpet",
@@ -77,7 +77,7 @@
     "id": 10,
     "image": "piccolo.png",
     "shortDescription": "A type of trumpet pitched one octave below the standard Bb trumpet",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Bass Viola da Gamba",
@@ -85,7 +85,7 @@
     "id": 11,
     "image": "Bass Viola da Gamba.png",
     "shortDescription": "A stringed instrument with frets, played with a bow",
-    "instrumentFamily": "String"
+    "family": "String"
   },
   {
     "name": "Bassoon",
@@ -93,7 +93,7 @@
     "id": 12,
     "image": "Bassoon.png",
     "shortDescription": "A woodwind instrument with a double reed, played with both hands and the lips",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Bells",
@@ -101,7 +101,7 @@
     "id": 13,
     "image": "Bells.png",
     "shortDescription": "A percussion instrument consisting of a set of metal bars of varying lengths, struck with mallets",
-    "instrumentFamily": "Percussion"
+    "family": "Percussion"
   },
   {
     "name": "Celesta",
@@ -109,7 +109,7 @@
     "id": 14,
     "image": "celesterang.png",
     "shortDescription": "A keyboard instrument with metal plates struck by hammers, producing a bell-like sound",
-    "instrumentFamily": "Keyboard"
+    "family": "Keyboard"
   },
   {
     "name": "Cello",
@@ -117,7 +117,7 @@
     "id": 15,
     "image": "Cello.png",
     "shortDescription": "A large stringed instrument played with a bow, held between the legs",
-    "instrumentFamily": "String"
+    "family": "String"
   },
   {
     "name": "Clarinet in Bb",
@@ -125,7 +125,7 @@
     "id": 16,
     "image": "Clarinet in Bb.png",
     "shortDescription": "A woodwind instrument with a single reed, played with both hands and the lips",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Clarinet in Eb",
@@ -133,7 +133,7 @@
     "id": 17,
     "image": "Clarinet in Eb.png",
     "shortDescription": "A woodwind instrument with a single reed, played with both hands and the lips",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Contra-Alto Clarinet",
@@ -141,7 +141,7 @@
     "id": 18,
     "image": "Contra-Alto Clarinet.png",
     "shortDescription": "A low-pitched woodwind instrument with a single reed, played with both hands and the lips",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Contrabass Clarinet",
@@ -149,7 +149,7 @@
     "id": 19,
     "image": "Contrabass Clarinet.png",
     "shortDescription": "A very low-pitched woodwind instrument with a single reed, played with both hands and the lips",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Contrabass Saxophone",
@@ -157,7 +157,7 @@
     "id": 20,
     "image": "contrabass_saxophone.png",
     "shortDescription": "A large member of the saxophone family with a rich and deep sound",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Contrabass Tuba",
@@ -165,7 +165,7 @@
     "id": 21,
     "image": "contrabass_tuba.png",
     "shortDescription": "The largest and lowest pitched instrument in the tuba family",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Contrabassoon",
@@ -173,7 +173,7 @@
     "id": 22,
     "image": "contrabassoon.png",
     "shortDescription": "A larger and lower pitched version of the bassoon",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Cornet",
@@ -181,7 +181,7 @@
     "id": 23,
     "image": "cornet.png",
     "shortDescription": "A brass instrument similar to the trumpet but with a more mellow tone",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Double Bass",
@@ -189,7 +189,7 @@
     "id": 24,
     "image": "double_bass.png",
     "shortDescription": "The largest and lowest-pitched bowed string instrument in the modern symphony orchestra",
-    "instrumentFamily": "String"
+    "family": "String"
   },
   {
     "name": "English Horn",
@@ -197,7 +197,7 @@
     "id": 25,
     "image": "english_horn.png",
     "shortDescription": "A double-reed woodwind instrument similar to the oboe but with a lower, darker tone",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "English Horn in F",
@@ -205,7 +205,7 @@
     "id": 26,
     "image": "english_horn_in_f.png",
     "shortDescription": "A type of English horn that is pitched in F",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Euphonium",
@@ -213,7 +213,7 @@
     "id": 27,
     "image": "euphonium.png",
     "shortDescription": "A brass instrument that is similar to the tuba but smaller and more agile",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Flugelhorn",
@@ -221,7 +221,7 @@
     "id": 28,
     "image": "flugelhorn.png",
     "shortDescription": "A brass instrument similar to the trumpet but with a wider, conical bore",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "French Horn",
@@ -229,7 +229,7 @@
     "id": 29,
     "image": "french_horn.png",
     "shortDescription": "A brass instrument with a distinctive sound created by its flared bell and long, coiled tubing",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Glockenspiel",
@@ -237,7 +237,7 @@
     "id": 30,
     "image": "Glockenspiel.png",
     "shortDescription": "Percussion instrument consisting of tuned metal bars",
-    "instrumentFamily": "Percussion"
+    "family": "Percussion"
   },
   {
     "name": "Harp",
@@ -245,7 +245,7 @@
     "id": 31,
     "image": "Harp.png",
     "shortDescription": "Stringed instrument with many strings tuned to different pitches",
-    "instrumentFamily": "String"
+    "family": "String"
   },
   {
     "name": "Harpsichord",
@@ -253,7 +253,7 @@
     "id": 32,
     "image": "Harpsichord.png",
     "shortDescription": "Keyboard instrument in which strings are plucked by quills",
-    "instrumentFamily": "Keyboard"
+    "family": "Keyboard"
   },
   {
     "name": "Heckelphone",
@@ -261,7 +261,7 @@
     "id": 33,
     "image": "Heckelphone.png",
     "shortDescription": "Double reed woodwind instrument with a tone similar to the oboe",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Mandolin",
@@ -269,7 +269,7 @@
     "id": 34,
     "image": "Mandolin.png",
     "shortDescription": "Stringed instrument with a pear-shaped body and fretted neck",
-    "instrumentFamily": "String"
+    "family": "String"
   },
   {
     "name": "Marimba",
@@ -277,7 +277,7 @@
     "id": 35,
     "image": "marimbarang.png",
     "shortDescription": "Percussion instrument consisting of wooden bars struck with mallets",
-    "instrumentFamily": "Percussion"
+    "family": "Percussion"
   },
   {
     "name": "Oboe",
@@ -285,7 +285,7 @@
     "id": 36,
     "image": "oboerang.png",
     "shortDescription": "Woodwind instrument with a double reed and conical bore",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Octobass",
@@ -293,7 +293,7 @@
     "id": 37,
     "image": "Octobass.png",
     "shortDescription": "String instrument that produces very low notes",
-    "instrumentFamily": "String"
+    "family": "String"
   },
   {
     "name": "Ocarina",
@@ -301,7 +301,7 @@
     "id": 38,
     "image": "Ocarina.png",
     "shortDescription": "An ancient wind musical instrument.",
-    "instrumentFamily": "Aerophone"
+    "family": "Aerophone"
   },
   {
     "name": "Organ",
@@ -309,7 +309,7 @@
     "id": 39,
     "image": "Organ.png",
     "shortDescription": "A keyboard instrument that produces sound by blowing air through pipes.",
-    "instrumentFamily": "Keyboard"
+    "family": "Keyboard"
   },
   {
     "name": "Percussion",
@@ -317,7 +317,7 @@
     "id": 40,
     "image": "Percussion.png",
     "shortDescription": "A category of musical instruments that produce sound by being struck, shaken, or scraped.",
-    "instrumentFamily": "Percussion"
+    "family": "Percussion"
   },
   {
     "name": "Piano",
@@ -325,7 +325,7 @@
     "id": 41,
     "image": "pianorang.png",
     "shortDescription": "A keyboard instrument that produces sound by striking strings with hammers.",
-    "instrumentFamily": "Keyboard"
+    "family": "Keyboard"
   },
   {
     "name": "Piccolo",
@@ -333,7 +333,7 @@
     "id": 42,
     "image": "piccolorang.png",
     "shortDescription": "A small flute that plays an octave higher than the standard concert flute.",
-    "instrumentFamily": "Aerophone"
+    "family": "Aerophone"
   },
   {
     "name": "Sarrusophone",
@@ -341,7 +341,7 @@
     "id": 43,
     "image": "Sarrusophone.png",
     "shortDescription": "A family of brass instruments that are similar to the saxophone.",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Serpent",
@@ -349,7 +349,7 @@
     "id": 44,
     "image": "Serpent.png",
     "shortDescription": "A wind instrument that is similar to a bass cornett.",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Snare Drum",
@@ -357,7 +357,7 @@
     "id": 45,
     "image": "Snare Drum.png",
     "shortDescription": "A percussion instrument that has strands of wires under the drumhead that vibrate when struck.",
-    "instrumentFamily": "Percussion"
+    "family": "Percussion"
   },
   {
     "name": "Sousaphone",
@@ -365,7 +365,7 @@
     "id": 46,
     "image": "Sousaphone.png",
     "shortDescription": "A type of tuba that is wrapped around the body and is commonly used in marching bands.",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Soprano Saxophone",
@@ -373,7 +373,7 @@
     "id": 47,
     "image": "soprano_saxophone.png",
     "shortDescription": "Woodwind instrument that plays in the soprano range.",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Tenor Drum",
@@ -381,7 +381,7 @@
     "id": 48,
     "image": "tenor_drum.png",
     "shortDescription": "A cylindrical drum that produces a deep sound.",
-    "instrumentFamily": "Percussion"
+    "family": "Percussion"
   },
   {
     "name": "Tenor Saxophone",
@@ -389,7 +389,7 @@
     "id": 49,
     "image": "tenor_saxophone.png",
     "shortDescription": "Woodwind instrument that plays in the tenor range.",
-    "instrumentFamily": "Woodwind"
+    "family": "Woodwind"
   },
   {
     "name": "Theremin",
@@ -397,7 +397,7 @@
     "id": 50,
     "image": "theremin.png",
     "shortDescription": "Electronic instrument that is played without physical contact.",
-    "instrumentFamily": "Electronic"
+    "family": "Electronic"
   },
   {
     "name": "Timpani",
@@ -405,7 +405,7 @@
     "id": 51,
     "image": "timpanirang.png",
     "shortDescription": "Large kettle drums that are played with mallets.",
-    "instrumentFamily": "Percussion"
+    "family": "Percussion"
   },
   {
     "name": "Triangle",
@@ -413,7 +413,7 @@
     "id": 52,
     "image": "triangle.png",
     "shortDescription": "Percussion instrument that is struck with a metal beater.",
-    "instrumentFamily": "Percussion"
+    "family": "Percussion"
   },
   {
     "name": "Trombone",
@@ -421,7 +421,7 @@
     "id": 53,
     "image": "trombone.png",
     "shortDescription": "Brass instrument that uses a slide to change pitches.",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Trumpet",
@@ -429,7 +429,7 @@
     "id": 54,
     "image": "trumpetrang.png",
     "shortDescription": "Brass instrument played mainly in jazz and classical ensembles.",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Tuba",
@@ -437,7 +437,7 @@
     "id": 55,
     "image": "Tuba.png",
     "shortDescription": "Large brass instrument with a deep, mellow sound.",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Vibraphone",
@@ -445,7 +445,7 @@
     "id": 56,
     "image": "Vibraphone.png",
     "shortDescription": "Percussion instrument with metal bars and a motor-driven rotating disk to create a vibrato effect.",
-    "instrumentFamily": "Percussion"
+    "family": "Percussion"
   },
   {
     "name": "Viola",
@@ -453,7 +453,7 @@
     "id": 57,
     "image": "Viola.png",
     "shortDescription": "String instrument that is larger than a violin and smaller than a cello.",
-    "instrumentFamily": "String"
+    "family": "String"
   },
   {
     "name": "Violin",
@@ -461,7 +461,7 @@
     "id": 58,
     "image": "Violin.png",
     "shortDescription": "Small string instrument played with a bow or plucked with the fingers.",
-    "instrumentFamily": "String"
+    "family": "String"
   },
   {
     "name": "Voice",
@@ -469,7 +469,7 @@
     "id": 59,
     "image": "Voice.png",
     "shortDescription": "Musical instrument that produces sound with the human voice.",
-    "instrumentFamily": "Vocal"
+    "family": "Vocal"
   },
   {
     "name": "Wagner Tuba",
@@ -477,7 +477,7 @@
     "id": 60,
     "image": "WagnerTuba.png",
     "shortDescription": "Valved brass instrument developed by Richard Wagner for use in his operas.",
-    "instrumentFamily": "Brass"
+    "family": "Brass"
   },
   {
     "name": "Xylophone",
@@ -485,7 +485,7 @@
     "id": 61,
     "image": "Xylophone.png",
     "shortDescription": "Percussion instrument with wooden bars that are struck with mallets to produce sound.",
-    "instrumentFamily": "Percussion"
+    "family": "Percussion"
   },
   {
     "name": "Zither",
@@ -493,6 +493,6 @@
     "id": 62,
     "image": "Zither.png",
     "shortDescription": "Stringed instrument played by plucking the strings with the fingers or a plectrum.",
-    "instrumentFamily": "String"
+    "family": "String"
   }
 ]

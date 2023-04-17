@@ -7,7 +7,7 @@ import GamePlayScreen from "../components/GamePlayScreen";
 import GameStartScreen from "../components/GameStartScreen";
 import GameOverScreen from "../components/GameOverScreen";
 
-const maxRounds = 2;
+const maxRounds = 4;
 const roundGap = 3000;
 const volumeLevel = 0.1;
 const rightAnswer = new Audio("/audio/correctAnswer.mp3");
@@ -51,10 +51,10 @@ function App() {
   };
   useEffect(() => {
     const filteredInstruments = initialInstruments.filter((instrument) => {
-      if (!instrument.instrumentFamily) {
+      if (!instrument.family) {
         return;
       } else {
-        return families.includes(instrument.instrumentFamily);
+        return families.includes(instrument.family);
       }
     });
     setFilteredInstruments(filteredInstruments);

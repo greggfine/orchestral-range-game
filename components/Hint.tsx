@@ -23,7 +23,7 @@ const Hint = ({ correctAnswerInstrument, hintsVisible }: Props) => {
           Instrument Family:
         </span>{" "}
         <span className={styles.hint__headingWrapper__subheading}>
-          {correctAnswerInstrument.instrumentFamily}
+          {correctAnswerInstrument.family}
         </span>
       </div>
       <div className={styles.hint__description}>

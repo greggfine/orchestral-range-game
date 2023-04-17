@@ -12,7 +12,7 @@ type Props = {
   btnsDisabled: boolean;
   families: string[];
   instruments: Instrument[];
-  handleClick: () => void;
+  handleClick: (buttonChoiceName: string) => void;
   gameState: { score: number; round: number };
   hintsVisible: boolean;
   rightWrongDisplayIsVisible: boolean;
@@ -22,7 +22,6 @@ type Props = {
 const GamePlayScreen = ({
   correctAnswerInstrument,
   btnsDisabled,
-  families,
   instruments,
   handleClick,
   gameState,

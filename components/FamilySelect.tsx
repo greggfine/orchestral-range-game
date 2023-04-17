@@ -10,10 +10,10 @@ const FamilySelect = ({
 }: familySelectProps) => {
   const families: Set<string> = new Set();
   initialInstruments.forEach((instrument) => {
-    if (!instrument.instrumentFamily) {
+    if (!instrument.family) {
       return;
     } else {
-      families.add(instrument.instrumentFamily);
+      families.add(instrument.family);
     }
   });
 
