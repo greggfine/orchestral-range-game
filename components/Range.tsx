@@ -1,7 +1,7 @@
 import styles from "./range.module.scss";
 import { Instrument } from "../types/types";
 import { motion } from "framer-motion";
-const IMAGE_BASE_PATH = "/images/ranges/";
+const IMAGE_BASE_PATH = "images/ranges/";
 
 type Props = {
   correctAnswerInstrument: Instrument;
