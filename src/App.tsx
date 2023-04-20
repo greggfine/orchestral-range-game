@@ -46,7 +46,6 @@ function App() {
 
   const [checkedCategories, setCheckedCategories] = useState(
     families.map(() => {
-      console.log(families);
       return false;
     })
   );
@@ -147,7 +146,6 @@ function App() {
     <>
       {!gameStarted && !gameOver && (
         <>
-          <h1>{JSON.stringify(checkedCategories)}</h1>
           <GameStartScreen
             generateAnswerAndRandomizedInstruments={
               generateAnswerAndRandomizedInstruments

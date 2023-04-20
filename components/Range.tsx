@@ -8,7 +8,6 @@ type Props = {
 };
 
 const Range = ({ correctAnswerInstrument }: Props) => {
-  // console.log(correctAnswerInstrument);
 
   return (
     <div className={styles.range}>
