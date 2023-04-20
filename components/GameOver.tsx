@@ -29,7 +29,9 @@ const GameOver = ({ gameState, init }: Props) => {
 
   return (
     <div className={styles.gameOver}>
-      <Lottie loop={false} animationData={gameOverAnimation} play speed={3} />
+      {animationLoaded && (
+        <Lottie loop={false} animationData={gameOverAnimation} play speed={3} />
+      )}
       <div className={styles.gameOver__score}>{gameState.score}</div>
       <button onClick={init} className={btnStyles.button}>
         Play Again?

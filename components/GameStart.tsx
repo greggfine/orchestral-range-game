@@ -7,10 +7,12 @@ import { Instrument } from "types/types";
 type Props = {
   setGameStarted: (gameStarted: boolean) => void;
   instruments: Instrument[];
+  isMuted: boolean;
   generateAnswerAndRandomizedInstruments: (instruments: Instrument[]) => void;
 };
 const GameStart = ({
   instruments,
+  isMuted,
   setGameStarted,
   generateAnswerAndRandomizedInstruments,
 }: Props) => {
@@ -27,6 +29,7 @@ const GameStart = ({
       <button
         className={btnStyles.button}
         onClick={() => {
+          startGame.muted = isMuted;
           startGame.volume = 0.5;
           startGame.play();
           setGameStarted(true);

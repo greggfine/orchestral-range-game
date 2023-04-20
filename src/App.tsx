@@ -7,7 +7,7 @@ import GamePlayScreen from "../components/GamePlayScreen";
 import GameStartScreen from "../components/GameStartScreen";
 import GameOverScreen from "../components/GameOverScreen";
 
-const maxRounds = 4;
+const maxRounds = 2;
 const roundGap = 3000;
 const volumeLevel = 0.1;
 const rightAnswer = new Audio("audio/correctAnswer.mp3");
@@ -40,6 +40,7 @@ function App() {
   );
   const [instruments, setInstruments] = useState<Instrument[]>([]);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
   const [rightWrongDisplayIsVisible, setRightWrongDisplayIsVisible] =
     useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
@@ -49,6 +50,10 @@ function App() {
       return false;
     })
   );
+
+  const handleIsMuted = () => {
+    setIsMuted(!isMuted);
+  };
 
   const handleFamilySelect = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -94,6 +99,7 @@ function App() {
     setGameStarted(true);
     setRightWrongDisplayIsVisible(false);
     setInstruments([]);
+    setIsMuted(false);
     setCorrectAnswerInstrument(initialCorrectAnswerInstrument);
     generateAnswerAndRandomizedInstruments(initialInstruments);
   };
@@ -107,11 +113,13 @@ function App() {
         }),
         setIsCorrectAnswer(true),
         (rightAnswer.volume = volumeLevel),
-        rightAnswer.play())
+        rightAnswer.play(),
+        (rightAnswer.muted = isMuted))
       : (setGameState({ ...gameState }),
         setIsCorrectAnswer(false),
         (wrongAnswer.volume = volumeLevel * 3),
-        wrongAnswer.play());
+        wrongAnswer.play(),
+        (wrongAnswer.muted = isMuted));
 
     setRightWrongDisplayIsVisible(true);
     if (gameState.round < maxRounds) {
@@ -159,7 +167,9 @@ function App() {
             handleCloseInstructions={handleCloseInstructions}
             handleFamilySelect={handleFamilySelect}
             handleInstructionsClick={handleInstructionsClick}
+            handleIsMuted={handleIsMuted}
             initialInstruments={initialInstruments}
+            isMuted={isMuted}
             setGameStarted={setGameStarted}
             showInstructions={showInstructions}
             toggleHints={toggleHints}
@@ -183,8 +193,11 @@ function App() {
       {!gameStarted && gameOver && (
         <GameOverScreen
           gameState={gameState}
+          handleFamilySelect={handleFamilySelect}
           init={init}
+          initialInstruments={initialInstruments}
           toggleHints={toggleHints}
+          checkedCategories={checkedCategories}
         />
       )}
     </>

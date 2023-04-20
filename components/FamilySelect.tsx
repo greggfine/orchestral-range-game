@@ -2,7 +2,7 @@ import styles from "./family-select.module.scss";
 import { Instrument } from "types/types";
 type Props = {
   initialInstruments: Instrument[];
-  isChecked: boolean;
+  // isChecked: boolean;
   handleFamilySelect: (
     e: React.ChangeEvent<HTMLInputElement>,
     index: number

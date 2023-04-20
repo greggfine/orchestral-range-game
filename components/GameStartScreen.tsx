@@ -5,6 +5,7 @@ import GameStart from "./GameStart";
 import HintToggle from "./HintToggle";
 import FamilySelect from "./FamilySelect";
 import Instructions from "./Instructions";
+import MuteButton from "./MuteButton";
 const GameStartScreen = ({
   generateAnswerAndRandomizedInstruments,
   handleInstructionsClick,
@@ -12,7 +13,9 @@ const GameStartScreen = ({
   showInstructions,
   handleCloseInstructions,
   handleFamilySelect,
+  handleIsMuted,
   initialInstruments,
+  isMuted,
   setGameStarted,
   toggleHints,
   checkedCategories,
@@ -26,6 +29,7 @@ const GameStartScreen = ({
           generateAnswerAndRandomizedInstruments
         }
         instruments={instruments}
+        isMuted={isMuted}
       />
       <button
         onClick={handleInstructionsClick}
@@ -37,6 +41,7 @@ const GameStartScreen = ({
         {showInstructions && <Instructions onClose={handleCloseInstructions} />}
       </AnimatePresence>
       <HintToggle toggleHints={toggleHints} />
+      <MuteButton handleIsMuted={handleIsMuted} />
       <FamilySelect
         initialInstruments={initialInstruments}
         handleFamilySelect={handleFamilySelect}

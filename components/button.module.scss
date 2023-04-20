@@ -8,6 +8,8 @@
   width: 160px;
   border: 4px solid #e3d865;
   transition: all 100ms ease-in;
+  margin-left: auto;
+  margin-right: auto;
 
   &:disabled {
     opacity: 0.5;
