@@ -18,7 +18,7 @@ function App() {
     const fetchInstrument = async () => {
       const response = await fetch("instruments.json");
       const instruments = await response.json();
-      setInitialinstruments(instruments);
+      setInitialInstruments(instruments);
       setInstruments(instruments);
     };
     fetchInstrument();
@@ -35,7 +35,7 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameState, setGameState] = useState({ score: 0, round: 1 });
   const [hintsVisible, setHintsVisible] = useState(false);
-  const [initialInstruments, setInitialinstruments] = useState<Instrument[]>(
+  const [initialInstruments, setInitialInstruments] = useState<Instrument[]>(
     []
   );
   const [instruments, setInstruments] = useState<Instrument[]>([]);
@@ -74,8 +74,13 @@ function App() {
         return families.includes(instrument.family);
       }
     });
-    setFilteredInstruments(filteredInstruments);
-    generateAnswerAndRandomizedInstruments(filteredInstruments);
+    if (filteredInstruments.length > 0) {
+      setFilteredInstruments(filteredInstruments);
+      generateAnswerAndRandomizedInstruments(filteredInstruments);
+    } else {
+      setFilteredInstruments(initialInstruments);
+      generateAnswerAndRandomizedInstruments(initialInstruments);
+    }
   }, [families]);
 
   const handleInstructionsClick = () => setShowInstructions(true);
@@ -166,7 +171,6 @@ function App() {
         <GamePlayScreen
           btnsDisabled={btnsDisabled}
           correctAnswerInstrument={correctAnswerInstrument}
-          families={families}
           gameState={gameState}
           handleClick={handleClick}
           hintsVisible={hintsVisible}

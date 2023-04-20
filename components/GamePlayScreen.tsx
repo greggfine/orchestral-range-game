@@ -10,7 +10,6 @@ import { Instrument } from "types/types";
 type Props = {
   correctAnswerInstrument: Instrument;
   btnsDisabled: boolean;
-  families: string[];
   instruments: Instrument[];
   handleClick: (buttonChoiceName: string) => void;
   gameState: { score: number; round: number };
