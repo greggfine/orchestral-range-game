@@ -10,13 +10,13 @@ import GameOverScreen from "../components/GameOverScreen";
 const maxRounds = 4;
 const roundGap = 3000;
 const volumeLevel = 0.1;
-const rightAnswer = new Audio("/audio/correctAnswer.mp3");
-const wrongAnswer = new Audio("/audio/wrongAnswer.mp3");
+const rightAnswer = new Audio("audio/correctAnswer.mp3");
+const wrongAnswer = new Audio("audio/wrongAnswer.mp3");
 
 function App() {
   useEffect(() => {
     const fetchInstrument = async () => {
-      const response = await fetch("/instruments.json");
+      const response = await fetch("instruments.json");
       const instruments = await response.json();
       setInitialinstruments(instruments);
       setInstruments(instruments);
