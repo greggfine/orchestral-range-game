@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Alto Flute",
+    "range": "G3-G6",
+    "id": 1,
+    "image": "alto-flute.svg",
+    "shortDescription": "A type of flute pitched in the key of G",
+    "family": "Woodwind"
+  },
+  {
+    "name": "Alto Saxophone",
+    "range": "Ab3-F6",
+    "id": 2,
+    "image": "alto-saxophone.svg",
+    "shortDescription": "A member of the saxophone family of woodwind instruments",
+    "family": "Woodwind"
+  },
+  {
+    "name": "Bells",
+    "range": "C5 - C8",
+    "id": 13,
+    "image": "bells.svg",
+    "shortDescription": "A percussion instrument consisting of a set of metal bars of varying lengths, struck with mallets",
+    "family": "Percussion"
+  },
+  {
+    "name": "Clarinet in Bb",
+    "range": "E3 - G6",
+    "id": 16,
+    "image": "clarinet-in-bb.svg",
+    "shortDescription": "A woodwind instrument with a single reed, played with both hands and the lips",
+    "family": "Woodwind"
+  },
+  {
+    "name": "Clarinet in Eb",
+    "range": "G3 - C7",
+    "id": 17,
+    "image": "clarinet-in-eb.svg",
+    "shortDescription": "A woodwind instrument with a single reed, played with both hands and the lips",
+    "family": "Woodwind"
+  },
+  {
+    "name": "Oboe",
+    "range": "Bb3-G6",
+    "id": 36,
+    "image": "oboe.svg",
+    "shortDescription": "Woodwind instrument with a double reed and conical bore",
+    "family": "Woodwind"
+  },
+  {
+    "name": "Ocarina",
+    "range": "C5–F6",
+    "id": 38,
+    "image": "ocarina.svg",
+    "shortDescription": "An ancient wind musical instrument.",
+    "family": "Aerophone"
+  },
+  {
+    "name": "Piccolo",
+    "range": "D5–C8",
+    "id": 42,
+    "image": "piccolo.svg",
+    "shortDescription": "A small flute that plays an octave higher than the standard concert flute.",
+    "family": "Aerophone"
+  },
+  {
+    "name": "Soprano Saxophone",
+    "range": "C4-F6",
+    "id": 47,
+    "image": "soprano-saxophone.svg",
+    "shortDescription": "Woodwind instrument that plays in the soprano range.",
+    "family": "Woodwind"
+  },
+  {
+    "name": "Vibraphone",
+    "range": "F3 to F6",
+    "id": 56,
+    "image": "vibraphone.svg",
+    "shortDescription": "Percussion instrument with metal bars and a motor-driven rotating disk to create a vibrato effect.",
+    "family": "Percussion"
+  },
+  {
+    "name": "Violin",
+    "range": "G3 to E7",
+    "id": 58,
+    "image": "violin.svg",
+    "shortDescription": "Small string instrument played with a bow or plucked with the fingers.",
+    "family": "String"
+  },
+  {
+    "name": "Xylophone",
+    "range": "F3 to C7",
+    "id": 61,
+    "image": "xylophone.svg",
+    "shortDescription": "Percussion instrument with wooden bars that are struck with mallets to produce sound.",
+    "family": "Percussion"
+  }
+]
