@@ -41,7 +41,7 @@ const GameStartScreen = ({
         {showInstructions && <Instructions onClose={handleCloseInstructions} />}
       </AnimatePresence>
       <HintToggle toggleHints={toggleHints} />
-      <MuteButton handleIsMuted={handleIsMuted} />
+      <MuteButton handleIsMuted={handleIsMuted} isMuted={isMuted} />
       <FamilySelect
         initialInstruments={initialInstruments}
         handleFamilySelect={handleFamilySelect}

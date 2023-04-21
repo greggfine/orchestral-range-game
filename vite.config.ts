@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: "orchestral-range-game/",
+  // base: "orchestral-range-game/",
   // build: {
   //   minify: true,
   // },
@@ -12,11 +12,11 @@ export default defineConfig({
   server: {
     open: true,
   },
-  resolve: {
-    alias: {
-      "@src": path.resolve(__dirname, "src"),
-    },
-  },
+  // resolve: {
+  //   alias: {
+  //     "@src": path.resolve(__dirname, "src"),
+  //   },
+  // },
   plugins: [react()],
   test: {
     globals: true,
