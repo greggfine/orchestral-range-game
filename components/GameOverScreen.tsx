@@ -8,14 +8,14 @@ type Props = {
   gameState: { score: number; round: number };
   init: () => void;
   toggleHints: () => void;
-  checkedCategories: any;
+  checkedCategories: boolean[];
   handleFamilySelect: (
     e: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => void;
   initialInstruments: Instrument[];
 };
-const GameOverScreen = ({
+export default ({
   checkedCategories,
   gameState,
   handleFamilySelect,
@@ -43,4 +43,3 @@ const GameOverScreen = ({
     </motion.div>
   );
 };
-export default GameOverScreen;

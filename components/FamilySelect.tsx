@@ -2,14 +2,13 @@ import styles from "./family-select.module.scss";
 import { Instrument } from "types/types";
 type Props = {
   initialInstruments: Instrument[];
-  // isChecked: boolean;
   handleFamilySelect: (
     e: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => void;
   checkedCategories: boolean[];
 };
-const FamilySelect = ({
+export default ({
   checkedCategories,
   initialInstruments,
   handleFamilySelect,
@@ -42,5 +41,3 @@ const FamilySelect = ({
     </div>
   );
 };
-
-export default FamilySelect;

@@ -1,6 +1,8 @@
 .muteBtn {
   width: 30px;
   margin-bottom: var(--section-margin);
+  margin-left: auto;
+  margin-right: auto;
 
   &:hover {
     cursor: pointer;

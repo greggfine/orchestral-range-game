@@ -8,7 +8,7 @@ type Props = {
   init: () => void;
 };
 
-const GameOver = ({ gameState, init }: Props) => {
+export default ({ gameState, init }: Props) => {
   const [gameOverAnimation, setGameOverAnimation] = useState<any>(null);
   const [animationLoaded, setAnimationLoaded] = useState(false);
 
@@ -39,5 +39,3 @@ const GameOver = ({ gameState, init }: Props) => {
     </div>
   );
 };
-
-export default GameOver;

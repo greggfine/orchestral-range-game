@@ -18,7 +18,7 @@ type Props = {
   isCorrectAnswer: boolean;
   maxRounds: number;
 };
-const GamePlayScreen = ({
+export default ({
   correctAnswerInstrument,
   btnsDisabled,
   instruments,
@@ -59,8 +59,6 @@ const GamePlayScreen = ({
         correctAnswerInstrument={correctAnswerInstrument}
         hintsVisible={hintsVisible}
       />
-      {/* <div className={styles.app__hintsWrapper}></div> */}
     </motion.div>
   );
 };
-export default GamePlayScreen;

@@ -7,6 +7,7 @@
   justify-content: space-between;
   max-width: 20rem;
   margin: var(--section-margin) auto 0;
+  color: var(--primaryBlack);
   &__ellipse {
     visibility: hidden;
   }
@@ -16,7 +17,6 @@
     border: 2px solid var(--accentYellow);
   }
   &__text {
-    color: var(--primaryBlack);
     font-size: calc(var(--font-size-range) / 1.25);
     font-weight: 900;
     margin-top: calc(var(--section-margin) / 2);

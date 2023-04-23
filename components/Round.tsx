@@ -4,15 +4,11 @@ type Props = {
   round: number;
   maxRounds: number;
 };
-const RoundDisplay = ({ round, maxRounds }: Props) => {
-  return (
-    <div className={styles.round}>
-      <img src={roundsIcon} alt="rounds" className={styles.round__icon} />
-      <span className={styles.round__text}>
-        {round}/{maxRounds}
-      </span>
-    </div>
-  );
-};
-
-export default RoundDisplay;
+export default ({ round, maxRounds }: Props) => (
+  <div className={styles.round}>
+    <img src={roundsIcon} alt="rounds" className={styles.round__icon} />
+    <span className={styles.round__text}>
+      {round}/{maxRounds}
+    </span>
+  </div>
+);

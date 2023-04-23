@@ -23,29 +23,25 @@ const containerVariants = {
   },
 };
 
-const AnswerOptions = ({ instruments, handleClick, btnsDisabled }: Props) => {
-  return (
-    <motion.div
-      className={styles.answerOptions}
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      key={instruments[0].id}
-    >
-      {instruments.map((instrument, idx) => {
-        if (idx < MAX_INSTRUMENTS) {
-          return (
-            <Button
-              {...instrument}
-              handleClick={handleClick}
-              btnsDisabled={btnsDisabled}
-              key={instrument.id}
-            />
-          );
-        }
-      })}
-    </motion.div>
-  );
-};
-
-export default AnswerOptions;
+export default ({ instruments, handleClick, btnsDisabled }: Props) => (
+  <motion.div
+    className={styles.answerOptions}
+    variants={containerVariants}
+    initial="hidden"
+    animate="visible"
+    key={instruments[0].id}
+  >
+    {instruments.map((instrument, idx) => {
+      if (idx < MAX_INSTRUMENTS) {
+        return (
+          <Button
+            {...instrument}
+            handleClick={handleClick}
+            btnsDisabled={btnsDisabled}
+            key={instrument.id}
+          />
+        );
+      }
+    })}
+  </motion.div>
+);

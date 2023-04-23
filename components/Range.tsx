@@ -7,8 +7,23 @@ type Props = {
   correctAnswerInstrument: Instrument;
 };
 
-const Range = ({ correctAnswerInstrument }: Props) => {
-
+export default ({ correctAnswerInstrument }: Props) => {
+  if (!correctAnswerInstrument || !correctAnswerInstrument.image) {
+    return (
+      <div className={styles.range}>
+        <h1>(No Image Available)</h1>
+        <motion.div
+          className={styles.range__text}
+          initial={{ x: 20 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5 }}
+          key={correctAnswerInstrument.id}
+        >
+          {correctAnswerInstrument.range}
+        </motion.div>
+      </div>
+    );
+  }
   return (
     <div className={styles.range}>
       <motion.img
@@ -31,5 +46,3 @@ const Range = ({ correctAnswerInstrument }: Props) => {
     </div>
   );
 };
-
-export default Range;

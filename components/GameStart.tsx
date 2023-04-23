@@ -10,7 +10,7 @@ type Props = {
   isMuted: boolean;
   generateAnswerAndRandomizedInstruments: (instruments: Instrument[]) => void;
 };
-const GameStart = ({
+export default ({
   instruments,
   isMuted,
   setGameStarted,
@@ -41,5 +41,3 @@ const GameStart = ({
     </div>
   );
 };
-
-export default GameStart;
