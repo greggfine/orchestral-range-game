@@ -6,6 +6,13 @@ import Instructions from "./Instructions";
 
 test("it renders heading", () => {
   const onClose = vi.fn();
-  render(<Instructions onClose={onClose} />);
+  render(
+    <Instructions
+      onClose={onClose}
+      btnText="Close"
+      content="content"
+      title="instructions"
+    />
+  );
   expect(screen.getByText(/instructions/i)).toBeDefined();
 });
