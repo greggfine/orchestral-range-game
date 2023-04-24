@@ -1,5 +1,6 @@
 import styles from "./family-select.module.scss";
 import { Instrument } from "types/types";
+import React from "react";
 type Props = {
   initialInstruments: Instrument[];
   handleFamilySelect: (
@@ -8,12 +9,13 @@ type Props = {
   ) => void;
   checkedCategories: boolean[];
 };
-export default ({
+const FamilySelect = ({
   checkedCategories,
   initialInstruments,
   handleFamilySelect,
 }: Props) => {
   const families: Set<string> = new Set();
+  families.add("All");
   initialInstruments.forEach((instrument) => {
     if (!instrument.family) {
       return;
@@ -41,3 +43,5 @@ export default ({
     </div>
   );
 };
+
+export default React.memo(FamilySelect);

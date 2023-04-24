@@ -28,37 +28,35 @@ export default ({
   rightWrongDisplayIsVisible,
   isCorrectAnswer,
   maxRounds,
-}: Props) => {
-  return (
-    <motion.div
-      className={styles.app}
-      key="gameplay"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      <div className={styles.app__scoreAndRound}>
-        <div className={styles.app__scoreAndRound__textWrapper}>
-          <Score score={gameState.score} />
-          {rightWrongDisplayIsVisible && (
-            <AnswerFeedback isCorrectAnswer={isCorrectAnswer} />
-          )}
-          <Round round={gameState.round} maxRounds={maxRounds} />
-        </div>
+}: Props) => (
+  <motion.div
+    className={styles.app}
+    key="gameplay"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+  >
+    <div className={styles.app__scoreAndRound}>
+      <div className={styles.app__scoreAndRound__textWrapper}>
+        <Score score={gameState.score} />
+        {rightWrongDisplayIsVisible && (
+          <AnswerFeedback isCorrectAnswer={isCorrectAnswer} />
+        )}
+        <Round round={gameState.round} maxRounds={maxRounds} />
       </div>
-      <div>
-        <Range correctAnswerInstrument={correctAnswerInstrument} />
-        <div className={styles.app__divider}></div>
-        <AnswerOptions
-          instruments={instruments}
-          handleClick={handleClick}
-          btnsDisabled={btnsDisabled}
-        />
-      </div>
-      <Hint
-        correctAnswerInstrument={correctAnswerInstrument}
-        hintsVisible={hintsVisible}
+    </div>
+    <div>
+      <Range correctAnswerInstrument={correctAnswerInstrument} />
+      <div className={styles.app__divider}></div>
+      <AnswerOptions
+        instruments={instruments}
+        handleClick={handleClick}
+        btnsDisabled={btnsDisabled}
       />
-    </motion.div>
-  );
-};
+    </div>
+    <Hint
+      correctAnswerInstrument={correctAnswerInstrument}
+      hintsVisible={hintsVisible}
+    />
+  </motion.div>
+);

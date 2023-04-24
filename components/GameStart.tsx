@@ -1,9 +1,9 @@
 import styles from "./game-start.module.scss";
-import btnStyles from "./button.module.scss";
 import conductor from "/images/conductor.svg";
 import { motion } from "framer-motion";
 const startGame = new Audio("audio/startGame.mp3");
 import { Instrument } from "types/types";
+import Button from "shared/components/Button";
 type Props = {
   setGameStarted: (gameStarted: boolean) => void;
   instruments: Instrument[];
@@ -16,6 +16,13 @@ export default ({
   setGameStarted,
   generateAnswerAndRandomizedInstruments,
 }: Props) => {
+  const handleClick = () => {
+    startGame.muted = isMuted;
+    startGame.volume = 0.5;
+    startGame.play();
+    setGameStarted(true);
+    generateAnswerAndRandomizedInstruments(instruments);
+  };
   return (
     <div className={styles.gameStart}>
       <motion.img
@@ -26,18 +33,7 @@ export default ({
         transition={{ type: "spring", stiffness: 320 }}
       />
       <h1 className={styles.gameStart__heading}>Orchestral Range Game</h1>
-      <button
-        className={btnStyles.button}
-        onClick={() => {
-          startGame.muted = isMuted;
-          startGame.volume = 0.5;
-          startGame.play();
-          setGameStarted(true);
-          generateAnswerAndRandomizedInstruments(instruments);
-        }}
-      >
-        Start Game
-      </button>
+      <Button name="Start Game" handleClick={handleClick} />
     </div>
   );
 };

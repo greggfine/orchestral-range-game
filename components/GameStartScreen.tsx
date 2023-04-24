@@ -6,6 +6,7 @@ import FamilySelect from "./FamilySelect";
 import Instructions from "./Instructions";
 import MuteButton from "./MuteButton";
 import { Instrument } from "types/types";
+
 type Props = {
   checkedCategories: boolean[];
   generateAnswerAndRandomizedInstruments: (instruments: Instrument[]) => void;

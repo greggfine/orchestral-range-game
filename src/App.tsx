@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import { Instrument } from "../types/types";
 import { getRandomIndex, randomizeAnswers } from "./utils";
@@ -46,31 +46,31 @@ function App() {
   const [showInstructions, setShowInstructions] = useState(false);
 
   const [checkedCategories, setCheckedCategories] = useState(
-    families.map(() => {
+    families.map((family, idx) => {
       return false;
     })
   );
 
-  const handleIsMuted = () => {
+  const handleIsMuted = useCallback(() => {
     setIsMuted(!isMuted);
-  };
+  }, [isMuted]);
 
-  const handleFamilySelect = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    index: number
-  ) => {
-    const family = e.target.value;
-    if (e.target.checked) {
-      if (!families.includes(family)) {
-        setFamilies((prevState) => [...prevState, family]);
+  const handleFamilySelect = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+      const family = e.target.value;
+      if (e.target.checked) {
+        if (!families.includes(family)) {
+          setFamilies((prevState) => [...prevState, family]);
+        }
+      } else {
+        const filteredFamilies = families.filter((currFamily) => {
+          return family !== currFamily;
+        });
+        setFamilies([...filteredFamilies]);
       }
-    } else {
-      const filteredFamilies = families.filter((currFamily) => {
-        return family !== currFamily;
-      });
-      setFamilies([...filteredFamilies]);
-    }
-  };
+    },
+    [families]
+  );
   useEffect(() => {
     const filteredInstruments = initialInstruments.filter((instrument) => {
       if (!instrument.family) {

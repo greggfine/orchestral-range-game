@@ -22,24 +22,22 @@ export default ({
   init,
   initialInstruments,
   toggleHints,
-}: Props) => {
-  return (
-    <motion.div
-      className={styles.app}
-      key="gameover"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      <div className={styles.app__scoreAndRound}></div>
-      <GameOver gameState={gameState} init={init} />
-      <HintToggle toggleHints={toggleHints} />
-      <FamilySelect
-        initialInstruments={initialInstruments}
-        handleFamilySelect={handleFamilySelect}
-        checkedCategories={checkedCategories}
-      />
-      <div className={styles.app__hintsWrapper}></div>
-    </motion.div>
-  );
-};
+}: Props) => (
+  <motion.div
+    className={styles.app}
+    key="gameover"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+  >
+    <div className={styles.app__scoreAndRound}></div>
+    <GameOver gameState={gameState} init={init} />
+    <HintToggle toggleHints={toggleHints} />
+    <FamilySelect
+      initialInstruments={initialInstruments}
+      handleFamilySelect={handleFamilySelect}
+      checkedCategories={checkedCategories}
+    />
+    <div className={styles.app__hintsWrapper}></div>
+  </motion.div>
+);
