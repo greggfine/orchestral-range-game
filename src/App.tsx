@@ -104,7 +104,7 @@ function App() {
     generateAnswerAndRandomizedInstruments(initialInstruments);
   };
 
-  const handleClick = (buttonChoiceName: string) => {
+  const handleClick = (buttonChoiceName?: string) => {
     setBtnsDisabled(true);
     buttonChoiceName === correctAnswerInstrument.name
       ? (setGameState({
