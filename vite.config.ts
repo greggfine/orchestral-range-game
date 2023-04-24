@@ -5,9 +5,6 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   // base: "/orchestral-range-game",
-  // build: {
-  //   minify: true,
-  // },
   logLevel: "error",
   server: {
     open: true,
