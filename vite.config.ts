@@ -12,11 +12,6 @@ export default defineConfig({
   server: {
     open: true,
   },
-  // resolve: {
-  //   alias: {
-  //     "@src": path.resolve(__dirname, "src"),
-  //   },
-  // },
   plugins: [react()],
   test: {
     globals: true,
