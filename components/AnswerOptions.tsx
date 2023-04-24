@@ -7,7 +7,7 @@ const MAX_INSTRUMENTS = 4;
 
 type Props = {
   instruments: Instrument[];
-  handleClick: (name: string) => void;
+  handleClick: (name?: string) => void;
   btnsDisabled?: boolean;
 };
 

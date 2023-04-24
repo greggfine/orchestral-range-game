@@ -3,7 +3,7 @@ export type Instrument = {
   range: string;
   id: number;
   image?: string;
-  handleClick?: () => void;
+  handleClick?: (name?: string) => void;
   shortDescription?: string;
   family?: string;
   btnsDisabled?: boolean;
