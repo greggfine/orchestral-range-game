@@ -7,11 +7,12 @@ import GamePlayScreen from "../components/GamePlayScreen";
 import GameStartScreen from "../components/GameStartScreen";
 import GameOverScreen from "../components/GameOverScreen";
 
-const maxRounds = 2;
+const maxRounds = 3;
 const roundGap = 3000;
 const volumeLevel = 0.1;
 const rightAnswer = new Audio("audio/correctAnswer.mp3");
 const wrongAnswer = new Audio("audio/wrongAnswer.mp3");
+const startGame = new Audio("audio/startGame.mp3");
 
 function App() {
   useEffect(() => {
@@ -102,10 +103,12 @@ function App() {
     setGameOver(false);
     setGameStarted(true);
     setRightWrongDisplayIsVisible(false);
-    setInstruments([]);
-    setIsMuted(false);
-    setCorrectAnswerInstrument(initialCorrectAnswerInstrument);
-    generateAnswerAndRandomizedInstruments(initialInstruments);
+    // setInstruments([]);
+    // setCorrectAnswerInstrument(initialCorrectAnswerInstrument);
+    // generateAnswerAndRandomizedInstruments(initialInstruments);
+    startGame.muted = isMuted;
+    startGame.volume = 0.5;
+    startGame.play();
   };
 
   const handleClick = (buttonChoiceName?: string) => {
@@ -197,9 +200,14 @@ function App() {
       {!gameStarted && gameOver && (
         <GameOverScreen
           gameState={gameState}
+          handleCloseInstructions={handleCloseInstructions}
           handleFamilySelect={handleFamilySelect}
+          handleInstructionsClick={handleInstructionsClick}
+          handleIsMuted={handleIsMuted}
           init={init}
           initialInstruments={initialInstruments}
+          isMuted={isMuted}
+          showInstructions={showInstructions}
           toggleHints={toggleHints}
           checkedCategories={checkedCategories}
         />

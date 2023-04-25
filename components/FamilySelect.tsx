@@ -15,7 +15,6 @@ const FamilySelect = ({
   handleFamilySelect,
 }: Props) => {
   const families: Set<string> = new Set();
-  // families.add("All");
   initialInstruments.forEach((instrument) => {
     if (!instrument.family) {
       return;
@@ -23,6 +22,8 @@ const FamilySelect = ({
       families.add(instrument.family);
     }
   });
+  console.log(checkedCategories);
+
   return (
     <div className={styles.familySelect}>
       <div className={styles.familySelect__title}>Filter by Family</div>

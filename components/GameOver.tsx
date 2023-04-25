@@ -2,7 +2,6 @@ import styles from "./game-over.module.scss";
 import btnStyles from "./button.module.scss";
 import Lottie from "react-lottie-player";
 import { useEffect, useState } from "react";
-
 type Props = {
   gameState: { score: number; round: number };
   init: () => void;

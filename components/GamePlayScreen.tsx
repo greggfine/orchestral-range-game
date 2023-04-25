@@ -47,7 +47,7 @@ export default ({
     </div>
     <div>
       <Range correctAnswerInstrument={correctAnswerInstrument} />
-      <div className={styles.app__divider}></div>
+      {/* <div className={styles.app__divider}></div> */}
       <AnswerOptions
         instruments={instruments}
         handleClick={handleClick}
