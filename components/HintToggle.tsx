@@ -2,12 +2,12 @@ import styles from "./hint-toggle.module.scss";
 
 export default ({ toggleHints }: { toggleHints: () => void }) => (
   <div className={styles.hintToggle}>
-    <span
+    <div
       className={styles.hintToggle__label}
       title="Click to enable/disable hints"
     >
       Enable Hints
-    </span>
+    </div>
     <label htmlFor="hints" className={styles.hintToggle__switch}>
       <input
         defaultChecked={false}

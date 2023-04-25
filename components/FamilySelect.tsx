@@ -15,7 +15,7 @@ const FamilySelect = ({
   handleFamilySelect,
 }: Props) => {
   const families: Set<string> = new Set();
-  families.add("All");
+  // families.add("All");
   initialInstruments.forEach((instrument) => {
     if (!instrument.family) {
       return;
@@ -23,23 +23,27 @@ const FamilySelect = ({
       families.add(instrument.family);
     }
   });
-
   return (
     <div className={styles.familySelect}>
-      {Array.from(families).map((family, index) => {
-        return (
-          <div key={family}>
-            <label htmlFor={family}>{family}</label>
-            <input
-              id={family}
-              type="checkbox"
-              value={family}
-              onChange={(e) => handleFamilySelect(e, index)}
-              checked={checkedCategories[index]}
-            />
-          </div>
-        );
-      })}
+      <div className={styles.familySelect__title}>Filter by Family</div>
+      <div className={styles.familySelect__families}>
+        {Array.from(families).map((family, index) => {
+          return (
+            <div key={family}>
+              <input
+                id={family}
+                type="checkbox"
+                value={family}
+                onChange={(e) => handleFamilySelect(e, index)}
+                checked={checkedCategories[index]}
+                // defaultChecked={index === 0}
+                className={styles.familySelect__checkbox}
+              />
+              <label htmlFor={family}>{family}</label>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -1,10 +1,9 @@
 .hintToggle {
-  margin-top: var(--section-margin);
-  margin-bottom: var(--section-margin);
   &__label {
     display: inline-block;
     width: max-content;
-    color: rgba(53, 53, 110, 0.6);
+    // color: rgba(53, 53, 110, 0.6);
+    color: #000;
     vertical-align: bottom;
     margin-right: 12px;
     font-weight: 600;
@@ -61,8 +60,8 @@
   &__switch {
     position: relative;
     display: inline-block;
-    width: 54px;
-    height: 30px;
+    width: 48px;
+    height: 28px;
   }
 
   /* Hide default HTML checkbox */

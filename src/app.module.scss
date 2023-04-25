@@ -31,22 +31,33 @@
     background-color: var(--overlayPurple);
     z-index: 0;
   }
+  &__instructionsBook {
+    width: 42px;
+  }
   &__instructionsBtn {
-    background-color: var(--bgGrey);
-    border: 1px solid var(--primaryPurple);
     color: var(--primaryPurple);
-    padding: 12px 24px;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
-    width: 160px;
-    margin: 16px auto 0;
+    background-color: #f5f2d0;
+    border: 1px solid #000;
+  }
+  &__instructionsWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 
-    &:hover {
-      background-color: var(--accentYellow);
+    &__icons {
+      display: flex;
+      min-width: 150px;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 20px;
     }
   }
   &__scoreAndRound {
@@ -73,6 +84,10 @@
 
 @media (min-width: 960px) {
   .app {
+    &__instructionsWrapper {
+      width: 36%;
+      max-width: 525px;
+    }
     &__scoreAndRound {
       &__textWrapper {
         max-width: 660px;

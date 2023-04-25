@@ -46,9 +46,7 @@ function App() {
   const [showInstructions, setShowInstructions] = useState(false);
 
   const [checkedCategories, setCheckedCategories] = useState(
-    families.map((family, idx) => {
-      return false;
-    })
+    new Array(5).fill(false)
   );
 
   const handleIsMuted = useCallback(() => {
@@ -57,6 +55,12 @@ function App() {
 
   const handleFamilySelect = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
+      console.log(checkedCategories);
+
+      const updatedCheckedState = checkedCategories.map((item, idx) =>
+        idx === index ? !item : item
+      );
+      setCheckedCategories(updatedCheckedState);
       const family = e.target.value;
       if (e.target.checked) {
         if (!families.includes(family)) {

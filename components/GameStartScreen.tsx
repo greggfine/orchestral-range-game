@@ -6,6 +6,7 @@ import FamilySelect from "./FamilySelect";
 import Instructions from "./Instructions";
 import MuteButton from "./MuteButton";
 import { Instrument } from "types/types";
+import book from "/images/material-symbols_menu-book-outline-sharp.svg";
 
 type Props = {
   checkedCategories: boolean[];
@@ -49,12 +50,27 @@ export default ({
         instruments={instruments}
         isMuted={isMuted}
       />
-      <button
-        onClick={handleInstructionsClick}
-        className={styles.app__instructionsBtn}
-      >
-        Instructions
-      </button>
+      <FamilySelect
+        initialInstruments={initialInstruments}
+        handleFamilySelect={handleFamilySelect}
+        checkedCategories={checkedCategories}
+      />
+      <div className={styles.app__instructionsWrapper}>
+        <HintToggle toggleHints={toggleHints} />
+        <div className={styles.app__instructionsWrapper__icons}>
+          <button
+            onClick={handleInstructionsClick}
+            className={styles.app__instructionsBtn}
+          >
+            <img
+              src={book}
+              alt="instructions"
+              className={styles.app__instructionsBook}
+            />
+          </button>
+          <MuteButton handleIsMuted={handleIsMuted} isMuted={isMuted} />
+        </div>
+      </div>
       <AnimatePresence key="modal">
         {showInstructions && (
           <Instructions
@@ -73,13 +89,6 @@ export default ({
           />
         )}
       </AnimatePresence>
-      <HintToggle toggleHints={toggleHints} />
-      <MuteButton handleIsMuted={handleIsMuted} isMuted={isMuted} />
-      <FamilySelect
-        initialInstruments={initialInstruments}
-        handleFamilySelect={handleFamilySelect}
-        checkedCategories={checkedCategories}
-      />
       <div className={styles.app__hintsWrapper}></div>
     </motion.div>
   );
