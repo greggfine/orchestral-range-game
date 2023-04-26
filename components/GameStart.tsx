@@ -2,7 +2,7 @@ import styles from "./game-start.module.scss";
 import conductor from "/images/conductor.svg";
 import { motion } from "framer-motion";
 import { Instrument } from "types/types";
-import Button from "shared/components/Button";
+import Button from "../../shared/components/Button";
 const startGame = new Audio("audio/startGame.mp3");
 type Props = {
   setGameStarted: (gameStarted: boolean) => void;
