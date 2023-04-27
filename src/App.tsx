@@ -6,6 +6,7 @@ import { getRandomIndex, randomizeAnswers } from "./utils";
 import GamePlayScreen from "../components/GamePlayScreen";
 import GameStartScreen from "../components/GameStartScreen";
 import GameOverScreen from "../components/GameOverScreen";
+import Study from "../components/Study";
 
 const maxRounds = 3;
 const roundGap = 3000;
@@ -45,10 +46,14 @@ function App() {
   const [rightWrongDisplayIsVisible, setRightWrongDisplayIsVisible] =
     useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
-
+  const [study, setStudy] = useState(false);
   const [checkedCategories, setCheckedCategories] = useState(
     new Array(5).fill(false)
   );
+
+  const handleShowStudy = () => {
+    setStudy(!study);
+  };
 
   const handleIsMuted = useCallback(() => {
     setIsMuted(!isMuted);
@@ -163,8 +168,9 @@ function App() {
     );
   };
   return (
+    // <Study />
     <>
-      {!gameStarted && !gameOver && (
+      {!gameStarted && !gameOver && !study && (
         <>
           <GameStartScreen
             generateAnswerAndRandomizedInstruments={
@@ -175,6 +181,7 @@ function App() {
             handleFamilySelect={handleFamilySelect}
             handleInstructionsClick={handleInstructionsClick}
             handleIsMuted={handleIsMuted}
+            handleShowStudy={handleShowStudy}
             initialInstruments={initialInstruments}
             isMuted={isMuted}
             setGameStarted={setGameStarted}
@@ -183,6 +190,12 @@ function App() {
             checkedCategories={checkedCategories}
           />
         </>
+      )}
+      {study && (
+        <Study
+          initialInstruments={initialInstruments}
+          handleShowStudy={handleShowStudy}
+        />
       )}
       {gameStarted && !gameOver && (
         <GamePlayScreen

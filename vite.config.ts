@@ -15,6 +15,9 @@ export default defineConfig({
       plugins: [analyze()],
     },
   },
+  // optimizeDeps: {
+  //   exclude: ["react-beautiful-dnd"],
+  // },
   plugins: [react()],
   test: {
     globals: true,

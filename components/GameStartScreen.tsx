@@ -7,6 +7,7 @@ import Instructions from "./Instructions";
 import MuteButton from "./MuteButton";
 import { Instrument } from "types/types";
 import book from "/images/material-symbols_menu-book-outline-sharp.svg";
+import study from "/images/fluent-emoji-high-contrast_nerd-face.svg";
 
 type Props = {
   checkedCategories: boolean[];
@@ -18,6 +19,7 @@ type Props = {
   ) => void;
   handleInstructionsClick: () => void;
   handleIsMuted: () => void;
+  handleShowStudy: () => void;
   initialInstruments: Instrument[];
   instruments: Instrument[];
   isMuted: boolean;
@@ -32,6 +34,7 @@ export default ({
   handleCloseInstructions,
   handleFamilySelect,
   handleIsMuted,
+  handleShowStudy,
   initialInstruments,
   isMuted,
   setGameStarted,
@@ -66,6 +69,13 @@ export default ({
               src={book}
               alt="instructions"
               className={styles.app__instructionsBook}
+            />
+          </button>
+          <button onClick={handleShowStudy} className={styles.app__studyBtn}>
+            <img
+              src={study}
+              alt="study"
+              className={styles.app__studyBtn__image}
             />
           </button>
           <MuteButton handleIsMuted={handleIsMuted} isMuted={isMuted} />

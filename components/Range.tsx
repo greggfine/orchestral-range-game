@@ -7,8 +7,10 @@ type Props = {
   correctAnswerInstrument: Instrument;
 };
 
-export default ({ correctAnswerInstrument }: Props) => {
+const Range = ({ correctAnswerInstrument }: Props) => {
   if (!correctAnswerInstrument || !correctAnswerInstrument.image) {
+    console.log(correctAnswerInstrument);
+
     return (
       <div className={styles.range}>
         <h1>(No Image Available)</h1>
@@ -46,3 +48,5 @@ export default ({ correctAnswerInstrument }: Props) => {
     </div>
   );
 };
+
+export default Range;
