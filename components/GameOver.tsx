@@ -1,8 +1,12 @@
+import { useEffect, useState, useRef } from "react";
+
 import styles from "./game-over.module.scss";
 import btnStyles from "./button.module.scss";
+
 import lottie from "lottie-web";
+
 import animation from "../public/lottie/99105-final-gold.json";
-import { useEffect, useState, useRef } from "react";
+
 type Props = {
   gameState: { score: number; round: number };
   init: () => void;
@@ -26,8 +30,10 @@ export default ({ gameState, init }: Props) => {
       autoplay: true,
       animationData: animation,
     });
-    return () => anim.destroy(); // optional clean up for unmounting
+    anim.setSpeed(2);
+    return () => anim.destroy();
   }, []);
+
   useEffect(() => {
     if (gameOverAnimation) {
       setAnimationLoaded(true);

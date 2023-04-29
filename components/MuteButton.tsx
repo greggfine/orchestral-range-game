@@ -7,7 +7,6 @@ type Props = {
   isMuted: boolean;
 };
 export default React.memo(({ handleIsMuted, isMuted }: Props) => {
-  console.log("Mute Render");
   return (
     <img
       src={isMuted ? mute : speaker}

@@ -1,5 +1,6 @@
 import styles from "./family-select.module.scss";
 import { Instrument } from "types/types";
+import { sortAlphabetically } from "../src/utils";
 import React from "react";
 type Props = {
   initialInstruments: Instrument[];
@@ -22,13 +23,14 @@ const FamilySelect = ({
       families.add(instrument.family);
     }
   });
-  console.log(checkedCategories);
+
+  const sortedFamilies = sortAlphabetically(Array.from(families));
 
   return (
     <div className={styles.familySelect}>
       <div className={styles.familySelect__title}>Filter by Family</div>
       <div className={styles.familySelect__families}>
-        {Array.from(families).map((family, index) => {
+        {sortedFamilies.map((family, index) => {
           return (
             <div key={family}>
               <input
@@ -37,7 +39,6 @@ const FamilySelect = ({
                 value={family}
                 onChange={(e) => handleFamilySelect(e, index)}
                 checked={checkedCategories[index]}
-                // defaultChecked={index === 0}
                 className={styles.familySelect__checkbox}
               />
               <label htmlFor={family}>{family}</label>

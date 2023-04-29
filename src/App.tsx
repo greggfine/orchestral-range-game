@@ -8,7 +8,7 @@ import GameStartScreen from "../components/GameStartScreen";
 import GameOverScreen from "../components/GameOverScreen";
 import Study from "../components/Study";
 
-const maxRounds = 3;
+const maxRounds = 1;
 const roundGap = 3000;
 const volumeLevel = 0.1;
 const rightAnswer = new Audio("audio/correctAnswer.mp3");
@@ -61,8 +61,6 @@ function App() {
 
   const handleFamilySelect = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
-      console.log(checkedCategories);
-
       const updatedCheckedState = checkedCategories.map((item, idx) =>
         idx === index ? !item : item
       );
@@ -108,9 +106,6 @@ function App() {
     setGameOver(false);
     setGameStarted(true);
     setRightWrongDisplayIsVisible(false);
-    // setInstruments([]);
-    // setCorrectAnswerInstrument(initialCorrectAnswerInstrument);
-    // generateAnswerAndRandomizedInstruments(initialInstruments);
     startGame.muted = isMuted;
     startGame.volume = 0.5;
     startGame.play();
@@ -168,7 +163,6 @@ function App() {
     );
   };
   return (
-    // <Study />
     <>
       {!gameStarted && !gameOver && !study && (
         <>
@@ -201,6 +195,7 @@ function App() {
         <GamePlayScreen
           btnsDisabled={btnsDisabled}
           correctAnswerInstrument={correctAnswerInstrument}
+          families={families}
           gameState={gameState}
           handleClick={handleClick}
           hintsVisible={hintsVisible}
