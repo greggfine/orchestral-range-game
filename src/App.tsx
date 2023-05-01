@@ -18,10 +18,18 @@ const startGame = new Audio("audio/startGame.mp3");
 function App() {
   useEffect(() => {
     const fetchInstrument = async () => {
-      const response = await fetch("instruments.json");
-      const instruments = await response.json();
-      setInitialInstruments(instruments);
-      setInstruments(instruments);
+      try {
+        const response = await fetch("instruments.json");
+        const instruments = await response.json();
+        setInitialInstruments(instruments);
+        setInstruments(instruments);
+      } catch (error) {
+        if (error instanceof Error) {
+          console.log(error.name, error.message);
+        } else {
+          console.log("Instruments are not available");
+        }
+      }
     };
     fetchInstrument();
   }, []);
@@ -51,7 +59,7 @@ function App() {
     new Array(5).fill(false)
   );
 
-  const handleShowStudy = () => {
+  const handleToggleStudy = () => {
     setStudy(!study);
   };
 
@@ -175,7 +183,7 @@ function App() {
             handleFamilySelect={handleFamilySelect}
             handleInstructionsClick={handleInstructionsClick}
             handleIsMuted={handleIsMuted}
-            handleShowStudy={handleShowStudy}
+            handleToggleStudy={handleToggleStudy}
             initialInstruments={initialInstruments}
             isMuted={isMuted}
             setGameStarted={setGameStarted}
@@ -188,7 +196,7 @@ function App() {
       {study && (
         <Study
           initialInstruments={initialInstruments}
-          handleShowStudy={handleShowStudy}
+          handleToggleStudy={handleToggleStudy}
         />
       )}
       {gameStarted && !gameOver && (

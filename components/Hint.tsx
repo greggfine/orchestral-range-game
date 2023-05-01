@@ -6,7 +6,7 @@ type Props = {
   hintsVisible: boolean;
   correctAnswerInstrument: Instrument;
 };
-export default ({ correctAnswerInstrument, hintsVisible }: Props) => (
+const Hint = ({ correctAnswerInstrument, hintsVisible }: Props) => (
   <motion.div
     initial={{ opacity: 0, scale: 0.68 }}
     animate={
@@ -28,3 +28,5 @@ export default ({ correctAnswerInstrument, hintsVisible }: Props) => (
     </div>
   </motion.div>
 );
+
+export default Hint;

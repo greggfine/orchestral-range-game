@@ -1,22 +1,22 @@
-import React, { useRef } from "react";
-import Draggable, { DraggableCore } from "react-draggable";
+import { useRef } from "react";
+import Draggable from "react-draggable";
 import { Instrument } from "../types/types";
 import styles from "./study.module.scss";
 const IMAGE_BASE_PATH = "images/ranges/";
 
-function Study({
+const Study = ({
   initialInstruments,
-  handleShowStudy,
+  handleToggleStudy,
 }: {
   initialInstruments: Instrument[];
-  handleShowStudy: () => void;
-}) {
+  handleToggleStudy(): void;
+}) => {
   const draggableRef = useRef(null);
   return (
     <div className={styles.study}>
-      <button onClick={handleShowStudy}>Back to Home</button>
+      <button onClick={handleToggleStudy}>Back to Home</button>
       <div className={styles.study__dropZone}></div>
-      {initialInstruments.map((instrument, idx) => {
+      {initialInstruments.map((instrument) => {
         return (
           <Draggable nodeRef={draggableRef} key={instrument.id} grid={[10, 10]}>
             <div>
@@ -43,6 +43,6 @@ function Study({
       })}
     </div>
   );
-}
+};
 
 export default Study;

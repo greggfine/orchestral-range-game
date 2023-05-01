@@ -4,7 +4,6 @@ import styles from "./game-over.module.scss";
 import btnStyles from "./button.module.scss";
 
 import lottie from "lottie-web";
-
 import animation from "../public/lottie/99105-final-gold.json";
 
 type Props = {
@@ -12,19 +11,17 @@ type Props = {
   init: () => void;
 };
 
-export default ({ gameState, init }: Props) => {
-  const [gameOverAnimation, setGameOverAnimation] = useState<any>(null);
-  const [animationLoaded, setAnimationLoaded] = useState(false);
+const GameOver = ({ gameState, init }: Props) => {
   let animationContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const animationContainer = animationContainerRef.current;
+    const animationContainerElem = animationContainerRef.current;
 
-    if (!animationContainer) {
+    if (!animationContainerElem) {
       return;
     }
     const anim = lottie.loadAnimation({
-      container: animationContainer,
+      container: animationContainerElem,
       renderer: "svg",
       loop: false,
       autoplay: true,
@@ -33,12 +30,6 @@ export default ({ gameState, init }: Props) => {
     anim.setSpeed(2);
     return () => anim.destroy();
   }, []);
-
-  useEffect(() => {
-    if (gameOverAnimation) {
-      setAnimationLoaded(true);
-    }
-  }, [gameOverAnimation]);
 
   return (
     <div className={styles.gameOver}>
@@ -53,3 +44,5 @@ export default ({ gameState, init }: Props) => {
     </div>
   );
 };
+
+export default GameOver;

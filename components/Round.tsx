@@ -4,7 +4,7 @@ type Props = {
   round: number;
   maxRounds: number;
 };
-export default ({ round, maxRounds }: Props) => (
+const Round = ({ round, maxRounds }: Props) => (
   <div className={styles.round}>
     <img src={roundsIcon} alt="rounds" className={styles.round__icon} />
     <span className={styles.round__text}>
@@ -12,3 +12,5 @@ export default ({ round, maxRounds }: Props) => (
     </span>
   </div>
 );
+
+export default Round;

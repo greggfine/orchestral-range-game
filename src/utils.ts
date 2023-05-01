@@ -12,7 +12,7 @@ export const fisherYatesShuffle = (randomizedInstrument: Instrument[]) => {
   return randomizedInstrument;
 };
 
-export const getRandomIndex = (array: any[]): number => {
+export const getRandomIndex = (array: unknown[]): number => {
   return Math.floor(Math.random() * array.length);
 };
 export const randomizeAnswers = (

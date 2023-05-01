@@ -1,6 +1,6 @@
 import styles from "./hint-toggle.module.scss";
 
-export default ({ toggleHints }: { toggleHints: () => void }) => (
+const HintToggle = ({ toggleHints }: { toggleHints(): void }) => (
   <div className={styles.hintToggle}>
     <div
       className={styles.hintToggle__label}
@@ -22,3 +22,5 @@ export default ({ toggleHints }: { toggleHints: () => void }) => (
     </label>
   </div>
 );
+
+export default HintToggle;

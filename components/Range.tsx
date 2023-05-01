@@ -9,8 +9,6 @@ type Props = {
 
 const Range = ({ correctAnswerInstrument }: Props) => {
   if (!correctAnswerInstrument || !correctAnswerInstrument.image) {
-    console.log(correctAnswerInstrument);
-
     return (
       <div className={styles.range}>
         <h1>(No Image Available)</h1>

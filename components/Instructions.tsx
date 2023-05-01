@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 type Props = {
   btnText: string;
   content: string;
-  onClose: () => void;
+  onClose(): void;
   title: string;
 };
 
@@ -21,7 +21,7 @@ const variants = {
   },
 };
 
-export default ({ btnText, content, onClose, title }: Props) => (
+const Instructions = ({ btnText, content, onClose, title }: Props) => (
   <div className={styles.instructions}>
     <motion.div
       className={styles.instructions__modal}
@@ -38,3 +38,5 @@ export default ({ btnText, content, onClose, title }: Props) => (
     </motion.div>
   </div>
 );
+
+export default Instructions;

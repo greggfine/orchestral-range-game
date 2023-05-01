@@ -19,7 +19,7 @@ type Props = {
   ) => void;
   handleInstructionsClick: () => void;
   handleIsMuted: () => void;
-  handleShowStudy: () => void;
+  handleToggleStudy: () => void;
   initialInstruments: Instrument[];
   instruments: Instrument[];
   isMuted: boolean;
@@ -34,7 +34,7 @@ export default ({
   handleCloseInstructions,
   handleFamilySelect,
   handleIsMuted,
-  handleShowStudy,
+  handleToggleStudy,
   initialInstruments,
   isMuted,
   setGameStarted,
@@ -71,7 +71,7 @@ export default ({
               className={styles.app__instructionsBook}
             />
           </button>
-          <button onClick={handleShowStudy} className={styles.app__studyBtn}>
+          <button onClick={handleToggleStudy} className={styles.app__studyBtn}>
             <img
               src={study}
               alt="study"

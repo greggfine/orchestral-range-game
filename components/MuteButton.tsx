@@ -1,15 +1,15 @@
 import styles from "./mute-button.module.scss";
-import speaker from "/images/speaker.svg";
-import mute from "/images/mute.svg";
+import speakerIcon from "/images/speaker.svg";
+import muteIcon from "/images/mute.svg";
 import React from "react";
 type Props = {
   handleIsMuted: () => void;
   isMuted: boolean;
 };
-export default React.memo(({ handleIsMuted, isMuted }: Props) => {
+const MuteButton = React.memo(({ handleIsMuted, isMuted }: Props) => {
   return (
     <img
-      src={isMuted ? mute : speaker}
+      src={isMuted ? muteIcon : speakerIcon}
       alt="speaker"
       onClick={handleIsMuted}
       className={styles.muteBtn}
@@ -17,3 +17,5 @@ export default React.memo(({ handleIsMuted, isMuted }: Props) => {
     />
   );
 });
+
+export default MuteButton;
