@@ -29,12 +29,10 @@
   &__score {
     color: #2a9a7e;
     position: absolute;
-    top: 93%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     font-size: 5rem;
     font-weight: 900;
-    height: 100%;
   }
 }
 
